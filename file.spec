@@ -4,8 +4,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	4.20
-Release:	%mkrel 2
+Version:	4.21
+Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
@@ -13,9 +13,8 @@ Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.bz2
 Source1:	magic.mime
 # gw fix python linkage
 Patch0:		file-4.16-python.patch
-Patch2:		file-4.20-REG_STARTEND.patch
 Patch3:		file-4.20-selinux.patch
-Patch4:		file-4.20-oracle.patch
+Patch4:		file-4.21-oracle.patch
 Patch5:		file-4.20-ppt.patch
 Patch6:		file-4.20-ooffice.patch
 Patch7:		file-4.20-dump.patch
@@ -23,7 +22,7 @@ Patch8:		file-4.20-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
 Patch10:	file-4.20-clamav.patch
 Patch11:	file-4.20-bash.patch
-Patch12:	file-4.20-svn.patch
+Patch12:	file-4.21-svn.patch
 Patch13:	file-4.20-images.patch
 Patch14:	file-4.20-apple.patch
 Patch15:	file-4.20-magic-misc.patch
@@ -100,7 +99,6 @@ This package contains the python binding for libmagic.
 %prep
 %setup -q
 %patch0 -p1
-%patch2 -p1 -b .reg_start
 %patch3 -p1 -b .selinux
 %patch4 -p1 -b .oracle
 %patch5 -p1 -b .ppt
