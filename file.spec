@@ -5,7 +5,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	4.21
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
@@ -28,10 +28,11 @@ Patch14:	file-4.20-apple.patch
 Patch15:	file-4.20-magic-misc.patch
 Patch16:	file-4.20-audio.patch
 Patch17:	file-4.20-add-lzma.patch
+Patch18:	file-4.20-lzma-cointainer.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
 BuildRequires:  python-devel
-Buildroot:	%{_tmppath}/%{name}-%{version}-buildroot
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The file command is used to identify a particular file according to the
@@ -42,11 +43,11 @@ different graphics formats.
 You should install the file package, since the file command is such a
 useful utility.
 
-%package	-n %{libname}
+%package -n	%{libname}
 Group:		System/Libraries
 Summary:	Shared library for handling magic files
 
-%description	-n %{libname}
+%description -n	%{libname}
 The file command is used to identify a particular file according to the
 type of data contained by the file.  File can identify many different
 file types, including ELF binaries, system libraries, RPM packages, and
@@ -55,14 +56,14 @@ different graphics formats.
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
-%package	-n %{libname}-devel
+%package -n	%{libname}-devel
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description	-n %{libname}-devel
+%description -n	%{libname}-devel
 The file command is used to identify a particular file according to the
 type of data contained by the file.  File can identify many different
 file types, including ELF binaries, system libraries, RPM packages, and
@@ -71,7 +72,7 @@ different graphics formats.
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on. 
 
-%package	-n %{libname}-static-devel
+%package -n	%{libname}-static-devel
 Summary:	Static library to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname}-devel = %{version}
@@ -86,11 +87,11 @@ different graphics formats.
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on. 
 
-%package	-n python-magic
+%package -n	python-magic
 Summary:	Python module to use libmagic
 Group:		Development/Python
 
-%description	-n python-magic
+%description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on. 
 
@@ -114,6 +115,7 @@ This package contains the python binding for libmagic.
 %patch15 -p1 -b .magic_misc
 %patch16 -p1 -b .audio
 %patch17 -p1 -b .lzma
+%patch18 -p1 -b .lzma_container
 
 #cp %{SOURCE1} magic.mime
 
@@ -129,7 +131,7 @@ python setup.py build
 cd -
 
 %install
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %makeinstall_std
 
@@ -149,7 +151,7 @@ cd -
 %postun -n %{libname} -p /sbin/ldconfig
 
 %clean
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -178,5 +180,4 @@ cd -
 %defattr(-,root,root)
 %doc python/README python/example.py 
 %{py_platsitedir}/*
-
 
