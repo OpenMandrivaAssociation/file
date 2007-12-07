@@ -28,7 +28,7 @@ Patch14:	file-4.20-apple.patch
 Patch15:	file-4.20-magic-misc.patch
 Patch16:	file-4.20-audio.patch
 Patch17:	file-4.20-add-lzma.patch
-Patch18:	file-4.20-lzma-cointainer.patch
+Patch18:	file-4.21-lzma-cointainer.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
 BuildRequires:  python-devel
