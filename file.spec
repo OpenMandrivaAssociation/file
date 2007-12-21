@@ -32,6 +32,7 @@ Patch18:	file-4.21-lzma-cointainer.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
 BuildRequires:  python-devel
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The file command is used to identify a particular file according to the
