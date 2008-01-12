@@ -5,7 +5,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	4.21
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
