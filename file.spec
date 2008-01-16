@@ -7,7 +7,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	4.23
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
@@ -63,7 +63,8 @@ Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	libmagic-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes: %mklibname -d magic 1
+Provides:       magic-devel = %{version}-%{release}
+Obsoletes:      %mklibname -d magic 1
 
 %description -n	%develname
 The file command is used to identify a particular file according to the
@@ -79,7 +80,8 @@ Summary:	Static library to build applications that handle magic files
 Group:		Development/C
 Requires:	%develname = %{version}
 Provides:	libmagic-static-devel = %{version}-%{release}
-Obsoletes: %mklibname -s -d magic 1
+Provides:	magic-static-devel = %{version}-%{release}
+Obsoletes:      %mklibname -s -d magic 1
 
 %description	-n %staticname
 The file command is used to identify a particular file according to the
