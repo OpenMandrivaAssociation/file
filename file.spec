@@ -6,28 +6,25 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	4.23
-Release:	%mkrel 2
+Version:	4.24
+Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
 Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
-Source1:	magic.mime
 # gw fix python linkage
 Patch0:		file-4.16-python.patch
-Patch3:		file-4.20-selinux.patch
+Patch3:		file-4.24-selinux.patch
 Patch4:		file-4.21-oracle.patch
-Patch5:		file-4.20-ppt.patch
-Patch6:		file-4.20-ooffice.patch
-Patch7:		file-4.23-dump.patch
-Patch8:		file-4.20-berkeleydb.patch
+Patch6:         file-4.24-ooffice.patch
+Patch7:		file-4.24-dump.patch
+Patch8:		file-4.24-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
-Patch10:	file-4.20-clamav.patch
+Patch10:	file-4.24-clamav.patch
 Patch12:	file-4.21-svn.patch
 Patch13:	file-4.20-images.patch
 Patch14:	file-4.20-apple.patch
-Patch15:	file-4.23-magic_misc.patch
-Patch16:	file-4.20-audio.patch
+Patch16:	file-4.24-audio.patch
 Patch17:	file-4.20-add-lzma.patch
 Patch18:	file-4.23-lzma-cointainer.patch
 Requires:	%{libname} = %{version}
@@ -107,7 +104,6 @@ This package contains the python binding for libmagic.
 %patch0 -p1
 %patch3 -p1 -b .selinux
 %patch4 -p1 -b .oracle
-%patch5 -p1 -b .ppt
 %patch6 -p1 -b .ooffice
 %patch7 -p1 -b .dump
 %patch8 -p1 -b .berkeley
@@ -116,10 +112,12 @@ This package contains the python binding for libmagic.
 %patch12 -p1 -b .svn
 %patch13 -p1 -b .images
 %patch14 -p1 -b .apple
-%patch15 -p1 -b .magic_misc
 %patch16 -p1 -b .audio
 %patch17 -p1 -b .lzma
 %patch18 -p1 -b .lzma_container
+
+#patch 3
+autoreconf
 
 #cp %{SOURCE1} magic.mime
 
@@ -139,10 +137,6 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-#install -m0644 magic.mime %{buildroot}%{_datadir}/misc/magic.mime
-ln -sf file/magic.mime %{buildroot}%{_datadir}/misc/magic.mime
-ln -sf %{name}/magic %{buildroot}%{_datadir}/misc/magic
-
 # install one missing header file
 install -m0644 src/file.h %{buildroot}%{_includedir}/
 
@@ -159,7 +153,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README MAINT LEGAL.NOTICE ChangeLog 
+%doc README MAINT ChangeLog 
 %{_bindir}/*
 %{_datadir}/misc/*
 %{_mandir}/man1/*
