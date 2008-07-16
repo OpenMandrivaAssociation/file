@@ -6,7 +6,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	4.24
+Version:	4.25
 Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
@@ -20,7 +20,6 @@ Patch6:         file-4.24-ooffice.patch
 Patch7:		file-4.24-dump.patch
 Patch8:		file-4.24-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
-Patch10:	file-4.24-clamav.patch
 Patch12:	file-4.21-svn.patch
 Patch13:	file-4.20-images.patch
 Patch14:	file-4.20-apple.patch
@@ -108,7 +107,6 @@ This package contains the python binding for libmagic.
 %patch7 -p1 -b .dump
 %patch8 -p1 -b .berkeley
 %patch9 -p1 -b .xen
-%patch10 -p1 -b .clamav
 %patch12 -p1 -b .svn
 %patch13 -p1 -b .images
 %patch14 -p1 -b .apple
