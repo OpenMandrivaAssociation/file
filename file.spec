@@ -6,7 +6,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	4.25
+Version:	4.26
 Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
