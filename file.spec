@@ -7,7 +7,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	4.26
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
@@ -26,6 +26,7 @@ Patch14:	file-4.20-apple.patch
 Patch16:	file-4.24-audio.patch
 Patch17:	file-4.20-add-lzma.patch
 Patch18:	file-4.23-lzma-cointainer.patch
+Patch19:	file-4.26-format_not_a_string_literal_and_no_format_arguments.diff
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
 BuildRequires:  python-devel
@@ -108,11 +109,12 @@ This package contains the python binding for libmagic.
 %patch8 -p1 -b .berkeley
 %patch9 -p1 -b .xen
 %patch12 -p1 -b .svn
-%patch13 -p1 -b .images
-%patch14 -p1 -b .apple
+%patch13 -p0 -b .images
+%patch14 -p0 -b .apple
 %patch16 -p1 -b .audio
-%patch17 -p1 -b .lzma
-%patch18 -p1 -b .lzma_container
+%patch17 -p0 -b .lzma
+%patch18 -p0 -b .lzma_container
+%patch19 -p1 -b .format_not_a_string_literal_and_no_format_arguments
 
 #patch 3
 autoreconf
