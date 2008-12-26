@@ -25,7 +25,7 @@ Patch13:	file-4.20-images.patch
 Patch14:	file-4.20-apple.patch
 Patch16:	file-4.24-audio.patch
 Patch17:	file-4.20-add-lzma.patch
-Patch18:	file-4.23-lzma-cointainer.patch
+Patch18:	file-4.26-xz-container.patch
 Patch19:	file-4.26-format_not_a_string_literal_and_no_format_arguments.diff
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
@@ -113,7 +113,7 @@ This package contains the python binding for libmagic.
 %patch14 -p0 -b .apple
 %patch16 -p1 -b .audio
 %patch17 -p0 -b .lzma
-%patch18 -p0 -b .lzma_container
+%patch18 -p1 -b .xz_container~
 %patch19 -p1 -b .format_not_a_string_literal_and_no_format_arguments
 
 #patch 3
