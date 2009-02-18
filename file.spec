@@ -102,17 +102,17 @@ This package contains the python binding for libmagic.
 %prep
 %setup -q
 %patch0 -p1
-%patch3 -p1 -b .selinux
-%patch4 -p1 -b .oracle
-%patch6 -p1 -b .ooffice
-%patch7 -p1 -b .dump
-%patch8 -p1 -b .berkeley
-%patch9 -p1 -b .xen
-%patch12 -p1 -b .svn
-%patch13 -p0 -b .images
-%patch14 -p0 -b .apple
-%patch16 -p1 -b .audio
-%patch17 -p0 -b .lzma
+%patch3 -p1 -b .selinux~
+%patch4 -p1 -b .oracle~
+%patch6 -p1 -b .ooffice~
+%patch7 -p1 -b .dump~
+%patch8 -p1 -b .berkeley~
+%patch9 -p1 -b .xen~
+%patch12 -p1 -b .svn~
+%patch13 -p0 -b .images~
+%patch14 -p0 -b .apple~
+%patch16 -p1 -b .audio~
+%patch17 -p0 -b .lzma~
 %patch18 -p1 -b .xz_container~
 %patch19 -p1
 
