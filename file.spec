@@ -6,7 +6,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.00
+Version:	5.01
 Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
@@ -24,7 +24,7 @@ Patch12:	file-4.21-svn.patch
 Patch13:	file-4.20-images.patch
 Patch14:	file-4.20-apple.patch
 Patch16:	file-4.24-audio.patch
-Patch17:	file-4.20-add-lzma.patch
+Patch17:	file-5.01-add-lzma.patch
 Patch18:	file-4.26-xz-container.patch
 Patch19:	file-5.00-format-strings.patch
 Requires:	%{libname} = %{version}
@@ -112,7 +112,7 @@ This package contains the python binding for libmagic.
 %patch13 -p0 -b .images~
 %patch14 -p0 -b .apple~
 %patch16 -p1 -b .audio~
-%patch17 -p0 -b .lzma~
+%patch17 -p1 -b .lzma~
 %patch18 -p1 -b .xz_container~
 %patch19 -p1
 
