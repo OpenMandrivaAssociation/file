@@ -7,7 +7,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.03
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD 
 Group:		File tools
 URL:		ftp://ftp.astron.com/pub/file/
@@ -123,9 +123,7 @@ autoreconf -fi
 
 %build
 CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE" \
-%configure2_5x \
-    --datadir=%{_datadir}/misc
-
+%configure2_5x
 %make
 
 cd python
