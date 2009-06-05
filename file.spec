@@ -10,7 +10,7 @@ Version:	5.03
 Release:	%mkrel 2
 License:	BSD 
 Group:		File tools
-URL:		ftp://ftp.astron.com/pub/file/
+URL:		http://www.darwinsys.com/file/
 Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
 # gw fix python linkage
 Patch0:		file-4.16-python.patch
