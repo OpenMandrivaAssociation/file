@@ -15,7 +15,7 @@ Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
 # gw fix python linkage
 Patch0:		file-4.16-python.patch
 Patch3:		file-4.24-selinux.patch
-Patch4:		file-4.21-oracle.patch
+Patch4:		file-5.04-oracle.patch
 Patch6:         file-5.04-ooffice.patch
 Patch7:		file-4.24-dump.patch
 Patch8:		file-4.24-berkeleydb.patch
