@@ -6,8 +6,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.03
-Release:	%mkrel 3
+Version:	5.04
+Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
@@ -16,7 +16,7 @@ Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
 Patch0:		file-4.16-python.patch
 Patch3:		file-4.24-selinux.patch
 Patch4:		file-4.21-oracle.patch
-Patch6:         file-4.24-ooffice.patch
+Patch6:         file-5.04-ooffice.patch
 Patch7:		file-4.24-dump.patch
 Patch8:		file-4.24-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
