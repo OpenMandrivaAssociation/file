@@ -7,7 +7,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.04
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
