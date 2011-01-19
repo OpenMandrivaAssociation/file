@@ -6,26 +6,21 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.04
-Release:	%mkrel 2
+Version:	5.05
+Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
 Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
-# gw fix python linkage
-Patch0:		file-4.16-python.patch
 Patch3:		file-4.24-selinux.patch
 Patch4:		file-5.04-oracle.patch
-Patch6:         file-5.04-ooffice.patch
-Patch7:		file-4.24-dump.patch
+Patch7:		file-5.05-dump.patch
 Patch8:		file-4.24-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
-Patch12:	file-4.21-svn.patch
-Patch13:	file-4.20-images.patch
+Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
-Patch16:	file-4.24-audio.patch
-Patch17:	file-5.01-add-lzma.patch
-Patch18:	file-4.26-xz-container.patch
+Patch17:	file-5.05-add-lzma.patch
+Patch18:	file-5.05-xz-container.patch
 Patch19:	file-5.00-format-strings.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
@@ -92,6 +87,8 @@ command is based on.
 %package -n	python-magic
 Summary:	Python module to use libmagic
 Group:		Development/Python
+BuildArch: noarch
+Requires: %name >= %version-%release
 
 %description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
@@ -101,20 +98,15 @@ This package contains the python binding for libmagic.
 
 %prep
 %setup -q
-%patch0 -p1
 %patch3 -p1 -b .selinux~
 %patch4 -p1 -b .oracle~
-%patch6 -p1 -b .ooffice~
 %patch7 -p1 -b .dump~
 %patch8 -p1 -b .berkeley~
 %patch9 -p1 -b .xen~
-%patch12 -p1 -b .svn~
-%patch13 -p0 -b .images~
+%patch13 -p1 -b .images~
 %patch14 -p0 -b .apple~
-%patch16 -p1 -b .audio~
 %patch17 -p1 -b .lzma~
 %patch18 -p1 -b .xz_container~
-%patch19 -p1
 
 #patch 3
 autoreconf -fi
@@ -179,5 +171,5 @@ rm -rf %{buildroot}
 %files -n python-magic
 %defattr(-,root,root)
 %doc python/README python/example.py 
-%{py_platsitedir}/*
+%{py_puresitedir}/*
 
