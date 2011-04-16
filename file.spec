@@ -6,7 +6,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.05
+Version:	5.06
 Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
@@ -19,8 +19,6 @@ Patch8:		file-4.24-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
-Patch17:	file-5.05-add-lzma.patch
-Patch18:	file-5.05-xz-container.patch
 Patch19:	file-5.00-format-strings.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
@@ -105,8 +103,6 @@ This package contains the python binding for libmagic.
 %patch9 -p1 -b .xen~
 %patch13 -p1 -b .images~
 %patch14 -p0 -b .apple~
-%patch17 -p1 -b .lzma~
-%patch18 -p1 -b .xz_container~
 
 #patch 3
 autoreconf -fi
