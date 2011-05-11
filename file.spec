@@ -6,7 +6,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.06
+Version:	5.07
 Release:	%mkrel 1
 License:	BSD 
 Group:		File tools
