@@ -7,7 +7,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.10
-Release:	%mkrel 1
+Release:	2
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
@@ -23,7 +23,6 @@ Patch19:	file-5.00-format-strings.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
 BuildRequires:  python-devel
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The file command is used to identify a particular file according to the
@@ -130,42 +129,27 @@ cd python
 python setup.py install --prefix=%{buildroot}/%{_prefix}
 cd -
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanups
+rm -f %{buildroot}%{_libdir}/*.la
 
 %files
-%defattr(-,root,root)
-%doc README MAINT ChangeLog 
+%doc README MAINT ChangeLog
 %{_bindir}/*
 %{_datadir}/misc/*
 %{_mandir}/man1/*
 %{_mandir}/man4/*
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
 %{_libdir}/*.so
-%attr(644,root,root) %{_libdir}/*.la
 %{_includedir}/*
 %{_mandir}/man3/*
 
 %files -n %staticname
-%defattr(-,root,root)
 %{_libdir}/*.a
 
 %files -n python-magic
-%defattr(-,root,root)
-%doc python/README python/example.py 
+%doc python/README python/example.py
 %{py_puresitedir}/*
-
