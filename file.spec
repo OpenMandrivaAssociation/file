@@ -21,7 +21,7 @@ Patch14:	file-4.20-apple.patch
 Patch19:	file-5.00-format-strings.patch
 Patch20:	file-5.11-increase-strength-of-php-matching-to-take-precendence-over-c-lang.patch
 BuildRequires:	zlib-devel
-BuildRequires:  python-devel
+BuildRequires:	python-devel
 
 %description
 The file command is used to identify a particular file according to the
