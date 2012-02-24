@@ -7,7 +7,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.11
-Release:	1
+Release:	2
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
@@ -20,6 +20,7 @@ Patch9:		file-4.20-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
 Patch19:	file-5.00-format-strings.patch
+Patch20:	file-5.11-increase-strength-of-php-matching-to-take-precendence-over-c-lang.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	zlib-devel
 BuildRequires:  python-devel
@@ -102,6 +103,7 @@ This package contains the python binding for libmagic.
 %patch9 -p1 -b .xen~
 %patch13 -p1 -b .images~
 %patch14 -p0 -b .apple~
+%patch20 -p1 -b .php~
 
 #patch 3
 autoreconf -fi
