@@ -48,8 +48,8 @@ command is based on.
 %package -n	%{devname}
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
-Requires:	%{libname} = %{version}
-Provides:	magic-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Provides:	magic-devel = %{EVRD}
 Obsoletes:	%mklibname -d magic 1
 
 %description -n	%{devname}
@@ -64,8 +64,8 @@ command is based on.
 %package -n	%{staticname}
 Summary:	Static library to build applications that handle magic files
 Group:		Development/C
-Requires:	%{devname} = %{version}
-Provides:	magic-static-devel = %{version}-%{release}
+Requires:	%{devname} = %{EVRD}
+Provides:	magic-static-devel = %{EVRD}
 Obsoletes:	%mklibname -s -d magic 1
 
 %description -n	%{staticname}
@@ -81,7 +81,7 @@ command is based on.
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
-Requires:	%{name} >= %{version}-%{release}
+Requires:	%{name} >= %{EVRD}
 
 %description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
