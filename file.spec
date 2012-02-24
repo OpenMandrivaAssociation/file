@@ -50,7 +50,8 @@ Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
 Provides:	magic-devel = %{EVRD}
-Obsoletes:	%mklibname -d magic 1
+%define	olddev	%mklibname -d magic 1
+%rename		%{olddev}
 
 %description -n	%{devname}
 The file command is used to identify a particular file according to the
@@ -66,7 +67,8 @@ Summary:	Static library to build applications that handle magic files
 Group:		Development/C
 Requires:	%{devname} = %{EVRD}
 Provides:	magic-static-devel = %{EVRD}
-Obsoletes:	%mklibname -s -d magic 1
+%define	oldstat	%mklibname -s -d magic 1
+%rename		%{oldstat}
 
 %description -n	%{staticname}
 The file command is used to identify a particular file according to the
