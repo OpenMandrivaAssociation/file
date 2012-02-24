@@ -118,10 +118,10 @@ cd -
 %makeinstall_std
 
 # install one missing header file
-install -m0644 src/file.h %{buildroot}%{_includedir}/
+install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
 cd python
-python setup.py install --prefix=%{buildroot}/%{_prefix}
+python setup.py install --prefix=%{buildroot}%{_prefix}
 cd -
 
 # cleanups
