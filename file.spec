@@ -49,8 +49,6 @@ command is based on.
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{version}
-Provides:	libmagic-devel = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
 Provides:	magic-devel = %{version}-%{release}
 Obsoletes:	%mklibname -d magic 1
 
@@ -67,7 +65,6 @@ command is based on.
 Summary:	Static library to build applications that handle magic files
 Group:		Development/C
 Requires:	%{devname} = %{version}
-Provides:	libmagic-static-devel = %{version}-%{release}
 Provides:	magic-static-devel = %{version}-%{release}
 Obsoletes:	%mklibname -s -d magic 1
 
