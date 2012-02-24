@@ -18,7 +18,6 @@ Patch8:		file-5.10-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
-Patch19:	file-5.00-format-strings.patch
 Patch20:	file-5.11-increase-strength-of-php-matching-to-take-precendence-over-c-lang.patch
 BuildRequires:	zlib-devel
 BuildRequires:	python-devel
@@ -104,8 +103,6 @@ This package contains the python binding for libmagic.
 
 #patch 3
 autoreconf -fi
-
-#cp %{SOURCE1} magic.mime
 
 %build
 CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE" \
