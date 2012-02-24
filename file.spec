@@ -1,8 +1,7 @@
-%define major 1
-%define libname %mklibname magic %{major}
-%define develname %mklibname -d magic
-%define staticname %mklibname -d -s magic
-
+%define	major	1
+%define	libname	%mklibname magic %{major}
+%define	devname	%mklibname -d magic
+%define	staticname %mklibname -d -s magic
 
 Summary:	A utility for determining file types
 Name:		file
@@ -47,16 +46,16 @@ different graphics formats.
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
-%package -n	%develname
+%package -n	%{devname}
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	libmagic-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Provides:       magic-devel = %{version}-%{release}
-Obsoletes:      %mklibname -d magic 1
+Provides:	magic-devel = %{version}-%{release}
+Obsoletes:	%mklibname -d magic 1
 
-%description -n	%develname
+%description -n	%{devname}
 The file command is used to identify a particular file according to the
 type of data contained by the file.  File can identify many different
 file types, including ELF binaries, system libraries, RPM packages, and
@@ -65,15 +64,15 @@ different graphics formats.
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on. 
 
-%package -n	%staticname
+%package -n	%{staticname}
 Summary:	Static library to build applications that handle magic files
 Group:		Development/C
-Requires:	%develname = %{version}
+Requires:	%{devname} = %{version}
 Provides:	libmagic-static-devel = %{version}-%{release}
 Provides:	magic-static-devel = %{version}-%{release}
-Obsoletes:      %mklibname -s -d magic 1
+Obsoletes:	%mklibname -s -d magic 1
 
-%description	-n %staticname
+%description -n	%{staticname}
 The file command is used to identify a particular file according to the
 type of data contained by the file.  File can identify many different
 file types, including ELF binaries, system libraries, RPM packages, and
@@ -85,8 +84,8 @@ command is based on.
 %package -n	python-magic
 Summary:	Python module to use libmagic
 Group:		Development/Python
-BuildArch: noarch
-Requires: %name >= %version-%release
+BuildArch:	noarch
+Requires:	%{name} >= %{version}-%{release}
 
 %description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
@@ -120,8 +119,6 @@ python setup.py build
 cd -
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 # install one missing header file
@@ -144,12 +141,12 @@ rm -f %{buildroot}%{_libdir}/*.la
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
 
-%files -n %develname
+%files -n %{devname}
 %{_libdir}/*.so
 %{_includedir}/*
 %{_mandir}/man3/*
 
-%files -n %staticname
+%files -n %{staticname}
 %{_libdir}/*.a
 
 %files -n python-magic
