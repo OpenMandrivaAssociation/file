@@ -20,6 +20,7 @@ Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
 Patch20:	file-5.11-increase-strength-of-php-matching-to-take-precendence-over-c-lang.patch
 Patch21:	file-qed-vdi-image.patch
+Patch22:	file-tnef.patch
 BuildRequires:	zlib-devel
 BuildRequires:	python-devel
 
@@ -102,6 +103,7 @@ This package contains the python binding for libmagic.
 %patch14 -p0 -b .apple~
 %patch20 -p1 -b .php~
 %patch21 -p1 -b .qemu~
+%patch22 -p1 -b .tnef~
 
 #patch 3
 autoreconf -fi
