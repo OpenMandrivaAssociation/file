@@ -23,6 +23,7 @@ Patch21:	file-qed-vdi-image.patch
 Patch22:	file-tnef.patch
 Patch23:	file-python-func.patch
 Patch24:	file-5.10-sticky-bit.patch
+Patch25:	file-5.10-strength.patch
 BuildRequires:	zlib-devel
 BuildRequires:	python-devel
 
@@ -108,7 +109,7 @@ This package contains the python binding for libmagic.
 %patch22 -p1 -b .tnef~
 %patch23 -p1 -b .pyfunc~
 %patch24 -p1 -b .sticky_bit~
-
+%patch25 -p1 -b .c_strength~
 #patch 3
 autoreconf -fi
 
