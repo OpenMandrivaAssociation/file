@@ -22,6 +22,7 @@ Patch20:	file-5.11-increase-strength-of-php-matching-to-take-precendence-over-c-
 Patch21:	file-qed-vdi-image.patch
 Patch22:	file-tnef.patch
 Patch23:	file-python-func.patch
+Patch24:	file-5.10-sticky-bit.patch
 BuildRequires:	zlib-devel
 BuildRequires:	python-devel
 
@@ -106,6 +107,7 @@ This package contains the python binding for libmagic.
 %patch21 -p1 -b .qemu~
 %patch22 -p1 -b .tnef~
 %patch23 -p1 -b .pyfunc~
+%patch24 -p1 -b .sticky_bit~
 
 #patch 3
 autoreconf -fi
