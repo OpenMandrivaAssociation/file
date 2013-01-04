@@ -1,2 +1,4 @@
+removed_sources:
+  file-5.11.tar.gz: df8ffe8759ec8cd85a98dc98e858563ea2555f64
 sources:
-  "file-5.11.tar.gz": df8ffe8759ec8cd85a98dc98e858563ea2555f64
+  file-5.12.tar.gz: 782db8a2b37ff8ceada9d19c416eaf6c5b8297d4

@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.11
-Release:	4
+Version:	5.12
+Release:	1
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
@@ -18,12 +18,7 @@ Patch8:		file-5.10-berkeleydb.patch
 Patch9:		file-4.20-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
-Patch20:	file-5.11-increase-strength-of-php-matching-to-take-precendence-over-c-lang.patch
-Patch21:	file-qed-vdi-image.patch
-Patch22:	file-tnef.patch
-Patch23:	file-python-func.patch
 Patch24:	file-5.10-sticky-bit.patch
-Patch25:	file-5.10-strength.patch
 BuildRequires:	zlib-devel
 BuildRequires:	python-devel
 
@@ -104,18 +99,13 @@ This package contains the python binding for libmagic.
 %patch9 -p1 -b .xen~
 %patch13 -p1 -b .images~
 %patch14 -p0 -b .apple~
-%patch20 -p1 -b .php~
-%patch21 -p1 -b .qemu~
-%patch22 -p1 -b .tnef~
-%patch23 -p1 -b .pyfunc~
 %patch24 -p1 -b .sticky_bit~
-%patch25 -p1 -b .c_strength~
 #patch 3
 autoreconf -fi
 
 %build
 CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE" \
-%configure2_5x
+%configure2_5x --enable-static
 %make
 
 cd python
