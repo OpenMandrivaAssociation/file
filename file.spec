@@ -114,6 +114,9 @@ cd -
 
 %install
 %makeinstall_std
+mkdir %{buildroot}/%{_lib}
+mv %{buildroot}%{_libdir}/libmagic.so.%{major}* %{buildroot}/%{_lib}
+ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/libmagic.so
 
 # install one missing header file
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
@@ -131,23 +134,23 @@ popd
 %{_mandir}/man4/*
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+/%{_lib}/libmagic.so.%{major}*
 
 %files -n %{devname}
-%{_libdir}/*.so
+%{_libdir}/libmagic.so
 %{_includedir}/*
 %{_mandir}/man3/*
 
 %files -n %{staticname}
-%{_libdir}/*.a
+%{_libdir}/libmagic.a
 
 %files -n python-magic
 %doc python/README python/example.py
 %{py_puresitedir}/*
 
-
 %changelog
 * Thu Jan 13 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.12-2
+- move library to /%%{_lib} as it's required by /bin/rpm
 - use pkgconfig() deps for buildrequires
 
 * Sat Mar 03 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-3
