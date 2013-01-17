@@ -150,7 +150,7 @@ popd
 * Thu Jan 13 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.12-2
 - use pkgconfig() deps for buildrequires
 
-* Sat Mar 03 2012 Per Ã˜yvind Karlsen <peroyvind@mandriva.org> 5.11-3
+* Sat Mar 03 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-3
 + Revision: 781998
 - decrease strength of newly added "C source" patterns (rhbz#772651, P25, Fedora)
 - fix detection of ASCII text files with setuid, setgid, or sticky bits (P24,fed)
@@ -158,7 +158,7 @@ popd
 - add application/vnd.ms-tnef mimetype (P22, from Fedora)
 - add magic for qemu & vdi images (P21, from Fedora)
 
-* Fri Feb 24 2012 Per Ã˜yvind Karlsen <peroyvind@mandriva.org> 5.11-2
+* Fri Feb 24 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.11-2
 + Revision: 780115
 - use %%rename macro (fixes obsolete-not-provided)
 - use %%{EVRD} macro
@@ -168,7 +168,7 @@ popd
 - increase strength of php matching to take precendence over c-lang, fixing
   misidentification of php scripts as C/C++ (P20)
 
-* Wed Feb 22 2012 GÃ¶tz Waschk <waschk@mandriva.org> 5.11-1
+* Wed Feb 22 2012 Götz Waschk <waschk@mandriva.org> 5.11-1
 + Revision: 779169
 - new version
 
@@ -177,20 +177,20 @@ popd
 - remove the libtool *.la file
 - various fixes
 
-* Sun Jan 01 2012 GÃ¶tz Waschk <waschk@mandriva.org> 5.10-1
+* Sun Jan 01 2012 Götz Waschk <waschk@mandriva.org> 5.10-1
 + Revision: 748643
 - new version
 - rediff patch 8
 
-* Mon Sep 26 2011 GÃ¶tz Waschk <waschk@mandriva.org> 5.09-2
+* Mon Sep 26 2011 Götz Waschk <waschk@mandriva.org> 5.09-2
 + Revision: 701244
 - rebuild
 
-* Sat Sep 17 2011 GÃ¶tz Waschk <waschk@mandriva.org> 5.09-1
+* Sat Sep 17 2011 Götz Waschk <waschk@mandriva.org> 5.09-1
 + Revision: 700175
 - new version
 
-* Fri Aug 05 2011 GÃ¶tz Waschk <waschk@mandriva.org> 5.08-1
+* Fri Aug 05 2011 Götz Waschk <waschk@mandriva.org> 5.08-1
 + Revision: 693271
 - new version
 
@@ -203,7 +203,7 @@ popd
 - New version 5.06
   use upstream provided lzma and xz detection
 
-* Wed Jan 19 2011 GÃ¶tz Waschk <waschk@mandriva.org> 5.05-1
+* Wed Jan 19 2011 Götz Waschk <waschk@mandriva.org> 5.05-1
 + Revision: 631671
 - new version
 - drop patches 0,6,12,16
@@ -224,10 +224,10 @@ popd
 + Revision: 456632
 - Bump release so that it's higher than the one in 2009.1 updates
 
-  + GÃ¶tz Waschk <waschk@mandriva.org>
+  + Götz Waschk <waschk@mandriva.org>
     - fix URL
 
-* Wed May 27 2009 GÃ¶tz Waschk <waschk@mandriva.org> 5.03-2mdv2010.0
+* Wed May 27 2009 Götz Waschk <waschk@mandriva.org> 5.03-2mdv2010.0
 + Revision: 380178
 - fix data dir (blino)
 
@@ -244,16 +244,16 @@ popd
 - Update to new version 5.01
 - Rediff lzma patch
 
-  + Per Ã˜yvind Karlsen <peroyvind@mandriva.org>
+  + Per Øyvind Karlsen <peroyvind@mandriva.org>
     - add '~' at end of patch suffixes to avoid possible confusions and ensure
       proper 'ls' coloring
 
-* Wed Feb 04 2009 GÃ¶tz Waschk <waschk@mandriva.org> 5.00-1mdv2009.1
+* Wed Feb 04 2009 Götz Waschk <waschk@mandriva.org> 5.00-1mdv2009.1
 + Revision: 337343
 - new version
 - update patch 19
 
-  + Per Ã˜yvind Karlsen <peroyvind@mandriva.org>
+  + Per Øyvind Karlsen <peroyvind@mandriva.org>
     - new lzma format has been renamed to xz, update magic accordingly
 
 * Fri Dec 26 2008 Oden Eriksson <oeriksson@mandriva.com> 4.26-2mdv2009.1
@@ -265,7 +265,7 @@ popd
 + Revision: 278536
 - update to new version 4.26
 
-* Wed Jul 16 2008 GÃ¶tz Waschk <waschk@mandriva.org> 4.25-1mdv2009.0
+* Wed Jul 16 2008 Götz Waschk <waschk@mandriva.org> 4.25-1mdv2009.0
 + Revision: 236251
 - new version
 - drop patch 10
@@ -273,7 +273,7 @@ popd
   + Pixel <pixel@mandriva.com>
     - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
 
-* Wed Apr 09 2008 GÃ¶tz Waschk <waschk@mandriva.org> 4.24-1mdv2009.0
+* Wed Apr 09 2008 Götz Waschk <waschk@mandriva.org> 4.24-1mdv2009.0
 + Revision: 192489
 - new version
 - drop source 1
@@ -285,7 +285,7 @@ popd
 + Revision: 153586
 - Provides: magic-devel and magic-static-devel
 
-* Sun Jan 13 2008 GÃ¶tz Waschk <waschk@mandriva.org> 4.23-1mdv2008.1
+* Sun Jan 13 2008 Götz Waschk <waschk@mandriva.org> 4.23-1mdv2008.1
 + Revision: 151056
 - new version
 - new devel name
@@ -299,25 +299,25 @@ popd
   + Olivier Blin <blino@mandriva.org>
     - restore BuildRoot
 
-  + Per Ã˜yvind Karlsen <peroyvind@mandriva.org>
+  + Per Øyvind Karlsen <peroyvind@mandriva.org>
     - update lzma patch with an improved one from Anders F Bj?\195?\182rklund
 
-* Fri Jun 08 2007 Per Ã˜yvind Karlsen <peroyvind@mandriva.org> 4.21-2mdv2008.0
+* Fri Jun 08 2007 Per Øyvind Karlsen <peroyvind@mandriva.org> 4.21-2mdv2008.0
 + Revision: 37591
 - fix path in P18 (I suck)
 - add support for future LZMA format (P18)
 
-* Sun Jun 03 2007 GÃ¶tz Waschk <waschk@mandriva.org> 4.21-1mdv2008.0
+* Sun Jun 03 2007 Götz Waschk <waschk@mandriva.org> 4.21-1mdv2008.0
 + Revision: 34950
 - new version
 - rediff patches 4,12
 - drop patch 2
 
-  + Per Ã˜yvind Karlsen <peroyvind@mandriva.org>
+  + Per Øyvind Karlsen <peroyvind@mandriva.org>
     - add lzma support (P17)
 
 
-* Sat Mar 10 2007 Giuseppe GhibÃ² <ghibo@mandriva.com> 4.20-1mdv2007.1
+* Sat Mar 10 2007 Giuseppe Ghibò <ghibo@mandriva.com> 4.20-1mdv2007.1
 + Revision: 140963
 - Release 4.20.
 - Removed Patch1 (merged upstream).
@@ -325,11 +325,11 @@ popd
 - Merged Patch3 (selinux), Patch4 (oracle filesystem), Patch5 (powerpoint), Patch6 (openoffice, RH#223297), Patch7 (dump, RH#149868), Patch8 (cracklib, RH#168917), Patch9 (xen), Patch10 (clamav, RH#192406), Patch11 (bash, RH#202185), Patch12 (svn), Patch13 (images), Patch14 (apple) from Fedora, Patch15 (misc/magic) from Fedora/Debian.
 - Partially merged Patch16 (audio) from OpenSUSE.
 
-* Tue Jan 09 2007 GÃ¶tz Waschk <waschk@mandriva.org> 4.19-1mdv2007.1
+* Tue Jan 09 2007 Götz Waschk <waschk@mandriva.org> 4.19-1mdv2007.1
 + Revision: 106412
 - new version
 
-* Thu Dec 14 2006 Nicolas LÃ©cureuil <neoclust@mandriva.org> 4.17-6mdv2007.1
+* Thu Dec 14 2006 Nicolas Lẽcureuil <neoclust@mandriva.org> 4.17-6mdv2007.1
 + Revision: 96895
 - Rebuild against new python
 
@@ -350,7 +350,7 @@ popd
 * Thu Mar 16 2006 Götz Waschk <waschk@mandriva.org> 4.17-1mdk
 - drop patch 2
 
-* Thu Mar 16 2006 GÃ¶tz Waschk <waschk@mandriva.org> 4.17-1mdk
+* Thu Mar 16 2006 Götz Waschk <waschk@mandriva.org> 4.17-1mdk
 - New release 4.17
 
 * Fri Feb 10 2006 Götz Waschk <waschk@mandriva.org> 4.16-3mdk
@@ -360,7 +360,7 @@ popd
 - mkrel
 - create python subpackage
 
-* Wed Oct 19 2005 GÃ¶tz Waschk <waschk@mandriva.org> 4.16-1mdk
+* Wed Oct 19 2005 Götz Waschk <waschk@mandriva.org> 4.16-1mdk
 - New release 4.16
 
 * Sun Oct 02 2005 Abel Cheung <deaddog@mandriva.org> 4.15-1mdk
@@ -378,7 +378,7 @@ popd
 - Source2: mup support I submitted upstream
 - Remove rpmlint warnings
 
-* Mon Feb 14 2005 GÃ¶tz Waschk <waschk@linux-mandrake.com> 4.13-1mdk
+* Mon Feb 14 2005 Götz Waschk <waschk@linux-mandrake.com> 4.13-1mdk
 - New release 4.13
 
 * Thu Nov 25 2004 Goetz Waschk <waschk@linux-mandrake.com> 4.12-1mdk
