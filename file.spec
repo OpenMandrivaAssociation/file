@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.12
-Release:	1
+Release:	2
 License:	BSD 
 Group:		File tools
 URL:		http://www.darwinsys.com/file/
@@ -19,8 +19,8 @@ Patch9:		file-4.20-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
 Patch24:	file-5.10-sticky-bit.patch
-BuildRequires:	zlib-devel
-BuildRequires:	python-devel
+BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(python2)
 
 %description
 The file command is used to identify a particular file according to the
@@ -147,6 +147,9 @@ popd
 
 
 %changelog
+* Thu Jan 13 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 5.12-2
+- use pkgconfig() deps for buildrequires
+
 * Sat Mar 03 2012 Per Ã˜yvind Karlsen <peroyvind@mandriva.org> 5.11-3
 + Revision: 781998
 - decrease strength of newly added "C source" patterns (rhbz#772651, P25, Fedora)
