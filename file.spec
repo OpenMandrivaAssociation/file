@@ -1,11 +1,11 @@
-%define	major	1
-%define	libname	%mklibname magic %{major}
-%define	devname	%mklibname -d magic
-%define	staticname %mklibname -d -s magic
+%define major 1
+%define libname %mklibname magic %{major}
+%define devname %mklibname -d magic
+%define staticname %mklibname -d -s magic
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.12
+Version:	5.14
 Release:	2
 License:	BSD 
 Group:		File tools
@@ -106,6 +106,11 @@ autoreconf -fi
 %build
 CFLAGS="%{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE" \
 %configure2_5x --enable-static
+
+# remove hardcoded library paths from local libtool
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
 %make
 
 cd python
