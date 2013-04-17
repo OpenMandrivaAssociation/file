@@ -1,5 +1,5 @@
---- magic/Magdir/apple	2008-02-28 19:57:34.000000000 +0100
-+++ magic/Magdir/apple.oden	2008-12-26 00:23:52.000000000 +0100
+--- ./magic/Magdir/apple	2008-02-28 19:57:34.000000000 +0100
++++ ./magic/Magdir/apple.oden	2008-12-26 00:23:52.000000000 +0100
 @@ -26,6 +26,23 @@
  >>0x14	short		x	\b, %u Blocks
  >0xc	byte		02	\b, NIB data
