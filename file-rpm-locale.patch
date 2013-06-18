@@ -1,0 +1,17 @@
+--- file-5.11/magic/Magdir/archive.orig	2011-10-26 15:44:47.000000000 +0000
++++ file-5.11/magic/Magdir/archive	2013-04-22 18:08:00.723608880 +0000
+@@ -676,12 +676,12 @@
+ >>>50		string	!vnd.oasis.opendocument.
+ >>>>50		string	!vnd.sun.xml.
+ >>>>>50		string	!vnd.kde.
+->>>>>>38	regex	[!-OQ-~]+		Zip data (MIME type "%s"?)
++>>>>>>38	regex	[0-9A-OQ-Za-z]+		Zip data (MIME type "%s"?)
+ !:mime	application/zip
+ #    (mimetype contents other than "application/*")
+ >26		string	\x8\0\0\0mimetype
+ >>38		string	!application/
+->>>38		regex	[!-OQ-~]+		Zip data (MIME type "%s"?)
++>>>38		regex	[0-9A-OQ-Za-z]+		Zip data (MIME type "%s"?)
+ !:mime	application/zip
+ 
+ # Generic zip archives (Greg Roelofs, c/o zip-bugs@wkuvx1.wku.edu)
