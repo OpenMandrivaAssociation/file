@@ -63,7 +63,7 @@ This package contains the static library for %{name}.
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
-Requires:	%{name} >= %{EVRD}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
