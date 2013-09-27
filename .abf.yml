@@ -1,5 +1,6 @@
 removed_sources:
   file-5.11.tar.gz: df8ffe8759ec8cd85a98dc98e858563ea2555f64
   file-5.12.tar.gz: 782db8a2b37ff8ceada9d19c416eaf6c5b8297d
-sources:
   file-5.14.tar.gz: 064c8f17a5f7ae1e336a9285131e046d3b2d04d7
+sources:
+  file-5.15.tar.gz: de1a060aa5fe61c1a6f0359fb526e824b4244323

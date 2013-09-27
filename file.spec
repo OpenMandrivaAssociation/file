@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.14
-Release:	3
+Version:	5.15
+Release:	1
 License:	BSD 
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -18,7 +18,6 @@ Patch8:		file-5.10-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
-Patch24:	file-5.10-sticky-bit.patch
 Patch26:	file-rpm-locale.patch
 
 BuildRequires:	pkgconfig(python2)

@@ -1,11 +1,12 @@
---- file-5.12/magic/Makefile.am.berkeley~	2013-01-04 17:22:54.000000000 +0100
-+++ file-5.12/magic/Makefile.am	2013-01-04 17:23:21.452636641 +0100
-@@ -51,12 +51,12 @@ $(MAGIC_FRAGMENT_DIR)/communications \
+--- file-5.15/magic/Makefile.am.berkeley~	2012-01-09 18:16:01.000000000 +0200
++++ file-5.15/magic/Makefile.am	2012-01-09 18:17:59.126125009 +0200
+@@ -51,13 +51,13 @@
  $(MAGIC_FRAGMENT_DIR)/compress \
  $(MAGIC_FRAGMENT_DIR)/console \
  $(MAGIC_FRAGMENT_DIR)/convex \
 -$(MAGIC_FRAGMENT_DIR)/cracklib \
  $(MAGIC_FRAGMENT_DIR)/ctags \
+ $(MAGIC_FRAGMENT_DIR)/ctf \
  $(MAGIC_FRAGMENT_DIR)/cubemap \
  $(MAGIC_FRAGMENT_DIR)/cups \
  $(MAGIC_FRAGMENT_DIR)/dact \
