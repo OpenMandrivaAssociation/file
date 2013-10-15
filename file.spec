@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.15
-Release:	1
+Release:	2
 License:	BSD 
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -22,6 +22,7 @@ Patch26:	file-rpm-locale.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(zlib)
+Requires:       %{libname} = %{EVRD}
 
 %description
 The file command is used to identify a particular file according to the
