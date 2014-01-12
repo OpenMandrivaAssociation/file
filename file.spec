@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.15
-Release:	3
+Release:	4
 License:	BSD 
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
