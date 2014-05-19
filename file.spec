@@ -8,7 +8,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.18
-Release:	2
+Release:	3
 License:	BSD 
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -80,6 +80,9 @@ command is based on.
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
+%if %{with uclibc}
+Requires:	uclibc-%{libname} = %{EVRD}
+%endif
 Provides:	magic-devel = %{EVRD}
 
 %description -n	%{devname}
