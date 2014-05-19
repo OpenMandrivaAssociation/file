@@ -1,0 +1,33 @@
+--- file-5.18/magic/Magdir/linux.0112~	2014-03-02 01:01:29.000000000 +0100
++++ file-5.18/magic/Magdir/linux	2014-04-04 12:20:45.628154937 +0200
+@@ -344,6 +344,30 @@
+ >>&1	string		x			(name %s)
+ 
+ # Type: Xen, the virtual machine monitor
++
++# Systemd journald files
++# See http://www.freedesktop.org/wiki/Software/systemd/journal-files/.
++# From: Zbigniew Jedrzejewski-Szmek <zbyszek@in.waw.pl>
++
++# check magic
++0	string	LPKSHHRH
++# check that state is one of known values
++>16		ubyte&252	0
++# check that each half of three unique id128s is non-zero
++>>24		ubequad		>0
++>>>32		ubequad		>0
++>>>>40		ubequad		>0
++>>>>>48		ubequad		>0
++>>>>>>56	ubequad		>0
++>>>>>>>64	ubequad		>0	Journal file
++!:mime application/octet-stream
++# provide more info
++>>>>>>>>184	leqdate		0	empty
++>>>>>>>>16	ubyte		0	\b, offline
++>>>>>>>>16	ubyte		1	\b, online
++>>>>>>>>16	ubyte		2	\b, archived
++>>>>>>>>8	ulelong&1	1	\b, sealed
++>>>>>>>>12	ulelong&1	1	\b, compressed
+ # From: Radek Vokal <rvokal@redhat.com>
+ 0	string		LinuxGuestRecord	Xen saved domain
+ #>2	regex		\(name\ [^)]*\)		%s

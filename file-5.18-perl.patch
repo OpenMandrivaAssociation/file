@@ -1,0 +1,34 @@
+--- file-5.18/magic/Magdir/perl.0108~	2013-12-09 00:33:18.000000000 +0100
++++ file-5.18/magic/Magdir/perl	2014-04-04 12:15:40.305159677 +0200
+@@ -7,16 +7,22 @@
+ # Send additions to <perl5-porters@perl.org>
+ 0	search/1	eval\ "exec\ /bin/perl		Perl script text
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1	eval\ "exec\ /usr/bin/perl	Perl script text
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1	eval\ "exec\ /usr/local/bin/perl	Perl script text
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1	eval\ '(exit\ $?0)'\ &&\ eval\ 'exec	Perl script text
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1	#!/usr/bin/env\ perl	Perl script text executable
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1	#!\ /usr/bin/env\ perl	Perl script text executable
+ !:mime	text/x-perl
++!:strength + 25
+ 0	search/1	#!
+ >0	regex	\^#!.*/bin/perl$	Perl script text executable
+ !:mime	text/x-perl
+@@ -30,7 +36,7 @@
+ 0	search/1	!p
+ >0	regex		\^package[\ \t]+[0-9A-Za-z_:]+\ *;
+ >>0	regex		\^1\ *;|\^(use|sub|my)\ .*[(;{=]	Perl5 module source text
+-!:strength + 10
++!:strength + 45
+ 
+ # Perl POD documents
+ # From: Tom Hukins <tom@eborcom.com>

@@ -1,0 +1,24 @@
+--- file-5.18/src/funcs.c.0111~	2014-03-14 20:02:37.000000000 +0100
++++ file-5.18/src/funcs.c	2014-04-04 12:19:38.202804416 +0200
+@@ -292,7 +292,7 @@ simple:
+ protected int
+ file_reset(struct magic_set *ms)
+ {
+-	if (ms->mlist[0] == NULL) {
++	if (ms->mlist == NULL) {
+ 		file_error(ms, 0, "no magic files loaded");
+ 		return -1;
+ 	}
+--- file-5.18/src/softmagic.c.0111~	2014-03-16 03:53:25.000000000 +0100
++++ file-5.18/src/softmagic.c	2014-04-04 12:19:38.203804347 +0200
+@@ -79,6 +79,10 @@ file_softmagic(struct magic_set *ms, con
+ {
+ 	struct mlist *ml;
+ 	int rv, printed_something = 0, need_separator = 0;
++
++	if (!ms->mlist[0])
++		return 0;
++
+ 	for (ml = ms->mlist[0]->next; ml != ms->mlist[0]; ml = ml->next)
+ 		if ((rv = match(ms, ml->magic, ml->nmagic, buf, nbytes, 0, mode,
+ 		    text, 0, level, &printed_something, &need_separator,
