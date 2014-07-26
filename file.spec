@@ -8,7 +8,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.19
-Release:	3
+Release:	4
 License:	BSD 
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -34,6 +34,7 @@ Patch111:	file-5.18-no-magic.patch
 Patch112:	file-5.18-journald.patch
 
 BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(zlib)
 %if %{with uclibc}
 BuildRequires:	uClibc-devel
@@ -109,6 +110,18 @@ command is based on.
 
 This package contains the python binding for libmagic.
 
+%package -n	python2-magic
+Summary:	Python 2.x module to use libmagic
+Group:		Development/Python
+BuildArch:	noarch
+Requires:	%{name} = %{version}-%{release}
+
+%description -n	python2-magic
+Libmagic is a library for handlig the so called magic files the 'file'
+command is based on. 
+
+This package contains the python 2.x binding for libmagic.
+
 %prep
 %setup -q
 %apply_patches
@@ -161,6 +174,9 @@ install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
 pushd python
 python setup.py install --prefix=%{buildroot}%{_prefix}
+
+python2 setup.py build
+python2 setup.py install --prefix=%{buildroot}%{_prefix}
 popd
 
 %files
@@ -197,3 +213,7 @@ popd
 %files -n python-magic
 %doc python/README python/example.py
 %{py_puresitedir}/*
+
+%files -n python2-magic
+%doc python/README python/example.py
+%{py2_puresitedir}/*
