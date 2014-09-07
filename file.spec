@@ -133,7 +133,7 @@ export CONFIGURE_TOP="$PWD"
 %global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
 mkdir -p glibc
 pushd glibc
-%configure2_5x --enable-static
+%configure --enable-static
 # remove hardcoded library paths from local libtool
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
@@ -141,6 +141,7 @@ sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 %make
 popd
 
+%if %{with uclibc}
 mkdir -p uclibc
 pushd uclibc
 %uclibc_configure
@@ -150,7 +151,7 @@ sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
 %make
 popd
-
+%endif
 
 cd python
 python setup.py build
@@ -163,11 +164,12 @@ mkdir %{buildroot}/%{_lib}
 mv %{buildroot}%{_libdir}/libmagic.so.%{major}* %{buildroot}/%{_lib}
 ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/libmagic.so
 
+%if %{with uclibc}
 %makeinstall_std -C uclibc
 mkdir %{buildroot}%{uclibc_root}/%{_lib}
 mv %{buildroot}%{uclibc_root}%{_libdir}/libmagic.so.%{major}* %{buildroot}%{uclibc_root}/%{_lib}
 ln -srf %{buildroot}%{uclibc_root}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{uclibc_root}%{_libdir}/libmagic.so
-
+%endif
 
 # install one missing header file
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
