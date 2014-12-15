@@ -1,7 +1,9 @@
---- file-4.20/magic/Localstuff.xen	2007-01-12 18:36:27.000000000 +0100
-+++ file-4.20/magic/Localstuff	2007-03-10 20:31:10.000000000 +0100
+diff --git a/magic/Localstuff b/magic/Localstuff
+index aef8095..659c816 100644
+--- a/magic/Localstuff
++++ b/magic/Localstuff
 @@ -5,3 +5,9 @@
- # $File: Localstuff,v 1.4 2003/03/23 04:17:27 christos Exp $
+ # $File: Localstuff,v 1.5 2007/01/12 17:38:27 christos Exp $
  # Add any locally observed files here.  Remember:
  # text if readable, executable if runnable binary, data if unreadable.
 +

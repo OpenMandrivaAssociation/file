@@ -1,6 +1,8 @@
---- file-5.18/src/funcs.c.0111~	2014-03-14 20:02:37.000000000 +0100
-+++ file-5.18/src/funcs.c	2014-04-04 12:19:38.202804416 +0200
-@@ -292,7 +292,7 @@ simple:
+diff --git a/src/funcs.c b/src/funcs.c
+index f190349..5aeb67c 100644
+--- a/src/funcs.c
++++ b/src/funcs.c
+@@ -291,7 +291,7 @@ simple:
  protected int
  file_reset(struct magic_set *ms)
  {
@@ -9,16 +11,16 @@
  		file_error(ms, 0, "no magic files loaded");
  		return -1;
  	}
---- file-5.18/src/softmagic.c.0111~	2014-03-16 03:53:25.000000000 +0100
-+++ file-5.18/src/softmagic.c	2014-04-04 12:19:38.203804347 +0200
-@@ -79,6 +79,10 @@ file_softmagic(struct magic_set *ms, con
+diff --git a/src/softmagic.c b/src/softmagic.c
+index c20ae67..dc58e0b 100644
+--- a/src/softmagic.c
++++ b/src/softmagic.c
+@@ -75,6 +75,8 @@ file_softmagic(struct magic_set *ms, const unsigned char *buf, size_t nbytes,
  {
  	struct mlist *ml;
  	int rv, printed_something = 0, need_separator = 0;
-+
 +	if (!ms->mlist[0])
 +		return 0;
-+
- 	for (ml = ms->mlist[0]->next; ml != ms->mlist[0]; ml = ml->next)
- 		if ((rv = match(ms, ml->magic, ml->nmagic, buf, nbytes, 0, mode,
- 		    text, 0, level, &printed_something, &need_separator,
+ 	uint16_t nc;
+ 
+ 	if (name_count == NULL) {
