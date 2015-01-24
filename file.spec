@@ -50,6 +50,7 @@ different graphics formats.
 You should install the file package, since the file command is such a
 useful utility.
 
+%if %{with uclibc}
 %package -n	uclibc-%{name}
 Summary:	A utility for determining file types (uClibc build)
 Group:		File tools
@@ -60,6 +61,7 @@ The file command is used to identify a particular file according to the
 type of data contained by the file.  File can identify many different
 file types, including ELF binaries, system libraries, RPM packages, and
 different graphics formats.
+%endif
 
 %package -n	%{libname}
 Summary:	Shared library for handling magic files
@@ -69,6 +71,7 @@ Group:		System/Libraries
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
+%if %{with uclibc}
 %package -n	uclibc-%{libname}
 Summary:	Shared library for handling magic files (uClibc build)
 Group:		System/Libraries
@@ -76,6 +79,7 @@ Group:		System/Libraries
 %description -n	uclibc-%{libname}
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
+%endif
 
 %package -n	%{devname}
 Summary:	Development files to build applications that handle magic files
@@ -106,7 +110,7 @@ Requires:	%{name} = %{version}-%{release}
 
 %description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
-command is based on. 
+command is based on.
 
 This package contains the python binding for libmagic.
 
@@ -125,6 +129,7 @@ This package contains the python 2.x binding for libmagic.
 %prep
 %setup -q
 %apply_patches
+
 autoreconf -fi
 find -name .0*~ -delete
 

@@ -1,14 +1,14 @@
-diff --git a/magic/Localstuff b/magic/Localstuff
-index aef8095..659c816 100644
---- a/magic/Localstuff
-+++ b/magic/Localstuff
-@@ -5,3 +5,9 @@
- # $File: Localstuff,v 1.5 2007/01/12 17:38:27 christos Exp $
+diff -Naur file-5.22/magic/Localstuff file-5.22.tpg/magic/Localstuff
+--- file-5.22/magic/Localstuff	2007-01-12 17:36:27.000000000 +0000
++++ file-5.22.tpg/magic/Localstuff	2015-01-24 14:31:27.074507019 +0000
+@@ -5,3 +5,10 @@
+ # $File: Localstuff,v 1.4 2003/03/23 04:17:27 christos Exp $
  # Add any locally observed files here.  Remember:
  # text if readable, executable if runnable binary, data if unreadable.
 +
++
 +# File magic for Xen, the virtual machine monitor for x86
-+0	string		LinuxGuestRecord	Xen saved domain
-+#>2	regex		\(name\ [^)]*\)		%s
-+>20	search/256	(name			(name
-+>>&1	string		x			%s...)
++0      string          LinuxGuestRecord        Xen saved domain
++#>2    regex           \(name\ [^)]*\)         %s
++>20    search/256      (name                   (name
++>>&1   string          x                       %s...)
