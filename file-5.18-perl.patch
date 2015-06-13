@@ -1,30 +1,48 @@
---- file-5.18/magic/Magdir/perl.0108~	2013-12-09 00:33:18.000000000 +0100
-+++ file-5.18/magic/Magdir/perl	2014-04-04 12:15:40.305159677 +0200
-@@ -7,16 +7,22 @@
+--- file-5.23/magic/Magdir/perl.0108~	2015-06-12 12:29:37.393568546 +0200
++++ file-5.23/magic/Magdir/perl	2015-06-13 14:32:32.936537211 +0200
+@@ -7,29 +7,40 @@
  # Send additions to <perl5-porters@perl.org>
- 0	search/1	eval\ "exec\ /bin/perl		Perl script text
+ 0	search/1024	eval\ "exec\ perl		Perl script text
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1	eval\ "exec\ /usr/bin/perl	Perl script text
+ 0	search/1024	eval\ "exec\ /bin/perl		Perl script text
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1	eval\ "exec\ /usr/local/bin/perl	Perl script text
+ 0	search/1024	eval\ "exec\ /usr/bin/perl	Perl script text
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1	eval\ '(exit\ $?0)'\ &&\ eval\ 'exec	Perl script text
+ 0	search/1024	eval\ "exec\ /usr/local/bin/perl	Perl script text
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1	#!/usr/bin/env\ perl	Perl script text executable
+ 0	search/1024	eval\ 'exec\ perl		Perl script text
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1	#!\ /usr/bin/env\ perl	Perl script text executable
+ 0	search/1024	eval\ 'exec\ /bin/perl		Perl script text
  !:mime	text/x-perl
-+!:strength + 25
- 0	search/1	#!
- >0	regex	\^#!.*/bin/perl$	Perl script text executable
++!:strength + 20
+ 0	search/1024	eval\ 'exec\ /usr/bin/perl	Perl script text
  !:mime	text/x-perl
-@@ -30,7 +36,7 @@
- 0	search/1	!p
++!:strength + 20
+ 0	search/1024	eval\ 'exec\ /usr/local/bin/perl	Perl script text
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1024	eval\ '(exit\ $?0)'\ &&\ eval\ 'exec	Perl script text
+ !:mime	text/x-perl
+ 0	search/1024	#!/usr/bin/env\ perl	Perl script text executable
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1024	#!\ /usr/bin/env\ perl	Perl script text executable
+ !:mime	text/x-perl
++!:strength + 20
+ 0	search/1024	#!
+ >0	regex	\^#!.*/bin/perl([[:space:]].*)*$	Perl script text executable
+ !:mime	text/x-perl
++!:strength + 20
+ 
+ # by Dmitry V. Levin and Alexey Tourbin
+ # check the first line
+@@ -40,7 +51,7 @@
+ 0	search/1024	!p
  >0	regex		\^package[\ \t]+[0-9A-Za-z_:]+\ *;
  >>0	regex		\^1\ *;|\^(use|sub|my)\ .*[(;{=]	Perl5 module source text
 -!:strength + 10

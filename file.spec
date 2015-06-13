@@ -7,7 +7,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.22
+Version:	5.23
 Release:	1
 License:	BSD 
 Group:		File tools
