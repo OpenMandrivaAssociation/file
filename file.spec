@@ -8,11 +8,12 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.23
-Release:	1
-License:	BSD 
+Release:	2
+License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
 Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
+Source1:	%{name}.rpmlintrc
 Patch3:		file-4.24-selinux.patch
 Patch4:		file-5.04-oracle.patch
 Patch7:		file-5.05-dump.patch
@@ -38,6 +39,7 @@ BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(zlib)
 %if %{with uclibc}
 BuildRequires:	uClibc-devel
+BuildRequires:	uclibc-zlib-devel
 %endif
 Requires:       %{libname} = %{EVRD}
 
@@ -79,15 +81,23 @@ Group:		System/Libraries
 %description -n	uclibc-%{libname}
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
+
+%package -n	uclibc-%{devname}
+Summary:	Development files to build applications that handle magic files
+Group:		Development/C
+Requires:	%{devname} = %{EVRD}
+Requires:	uclibc-%{libname} = %{EVRD}
+Provides:	uclibc-magic-devel = %{EVRD}
+Conflicts:	%{devname} < 5.23-2
+
+%description -n	uclibc-%{devname}
+This package contains the development files for %{name}.
 %endif
 
 %package -n	%{devname}
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
-%if %{with uclibc}
-Requires:	uclibc-%{libname} = %{EVRD}
-%endif
 Provides:	magic-devel = %{EVRD}
 
 %description -n	%{devname}
@@ -204,13 +214,13 @@ popd
 %if %{with uclibc}
 %files -n uclibc-%{libname}
 %{uclibc_root}/%{_lib}/libmagic.so.%{major}*
+
+%files -n uclibc-%{devname}
+%{uclibc_root}%{_libdir}/libmagic.so
 %endif
 
 %files -n %{devname}
 %{_libdir}/libmagic.so
-%if %{with uclibc}
-%{uclibc_root}%{_libdir}/libmagic.so
-%endif
 %{_includedir}/*
 %{_mandir}/man3/*
 
