@@ -1,14 +1,14 @@
-%define	major	1
-%define	libname	%mklibname magic %{major}
-%define	devname	%mklibname -d magic
-%define	static	%mklibname -d -s magic
+%define	major 1
+%define	libname %mklibname magic %{major}
+%define	devname %mklibname -d magic
+%define	static %mklibname -d -s magic
 
 %bcond_with uclibc
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.24
-Release:	3
+Version:	5.25
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -132,7 +132,7 @@ Requires:	%{name} = %{version}-%{release}
 
 %description -n	python2-magic
 Libmagic is a library for handlig the so called magic files the 'file'
-command is based on. 
+command is based on.
 
 This package contains the python 2.x binding for libmagic.
 
@@ -171,7 +171,6 @@ popd
 cd python
 python setup.py build
 cd -
-
 
 %install
 %makeinstall_std -C glibc
