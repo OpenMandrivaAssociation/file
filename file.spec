@@ -106,6 +106,7 @@ This package contains the python 2.x binding for libmagic.
 
 autoreconf -fi
 find -name .0*~ -delete
+cp -a python python2
 
 %build
 %global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
@@ -118,7 +119,11 @@ sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 %make
 
 pushd python
-%{__python} setup.py build
+PYTHONPATH=%{py3_puresitedir} %{__python} setup.py build
+popd
+
+pushd python2
+PYTHONPATH=%{py2_puresitedir} %{__python2} setup.py build
 popd
 
 %install
@@ -132,10 +137,11 @@ ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/lib
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
 pushd python
-PYTHONPATH=%{py_puresitedir} %{__python} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
+PYTHONPATH=%{py3_puresitedir} %{__python} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
+popd
 
+pushd python2
 # (tpg) build py2
-PYTHONPATH=%{py2_puresitedir} %{__python2} setup.py build
 PYTHONPATH=%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
 popd
 
