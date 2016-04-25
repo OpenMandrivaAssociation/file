@@ -16,6 +16,6 @@ diff -p -up file-4.24/magic/Makefile.am.selinux file-4.24/magic/Makefile.am
  $(MAGIC_FRAGMENT_DIR)/plan9 \
  $(MAGIC_FRAGMENT_DIR)/plus5 \
 +$(MAGIC_FRAGMENT_DIR)/policy \
+ $(MAGIC_FRAGMENT_DIR)/polyml \
  $(MAGIC_FRAGMENT_DIR)/printer \
  $(MAGIC_FRAGMENT_DIR)/project \
- $(MAGIC_FRAGMENT_DIR)/psdbms \

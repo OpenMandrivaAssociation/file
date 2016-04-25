@@ -15,21 +15,24 @@ Source1:	%{name}.rpmlintrc
 Patch3:		file-4.24-selinux.patch
 Patch4:		file-5.04-oracle.patch
 Patch7:		file-5.05-dump.patch
-Patch8:		file-5.10-berkeleydb.patch
+Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
 Patch26:	file-rpm-locale.patch
 
 # fedora patches
-Patch101:	file-5.18-strength.patch
+# (tpg) this patch is prolly merged
+#Patch101:	file-5.18-strength.patch
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 Patch105:	file-5.04-man-return-code.patch
-Patch106:	file-5.04-generic-msdos.patch
+# (tpg) this patch is prolly merged
+#Patch106:	file-5.04-generic-msdos.patch
 Patch107:	file-5.18-x86boot.patch
 Patch108:	file-5.18-perl.patch
-Patch111:	file-5.18-no-magic.patch
+# (tpg) this patch is prolly merged
+#Patch111:	file-5.18-no-magic.patch
 Patch112:	file-5.18-journald.patch
 
 BuildRequires:	pkgconfig(python2)
@@ -105,6 +108,7 @@ find -name .0*~ -delete
 
 %build
 %global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
+
 %configure --enable-static
 # remove hardcoded library paths from local libtool
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
