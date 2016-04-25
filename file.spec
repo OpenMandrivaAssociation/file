@@ -132,11 +132,11 @@ ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/lib
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
 pushd python
-%{__python} setup.py install --prefix=%{buildroot}%{_prefix}
+%{__python} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
 
 # (tpg) build py2
 %{__python2} setup.py build
-%{__python2} setup.py install --prefix=%{buildroot}%{_prefix}
+%{__python2} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
 popd
 
 %files
