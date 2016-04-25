@@ -37,6 +37,7 @@ Patch112:	file-5.18-journald.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	python3egg(setuptools)
 BuildRequires:	pkgconfig(zlib)
 Requires:       %{libname} = %{EVRD}
 
