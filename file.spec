@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.26
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -139,13 +139,13 @@ install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
 pushd python
 mkdir -p %{buildroot}%{py3_puresitedir}
-PYTHONPATH=%{buildroot}%{py3_puresitedir} %{__python} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
+PYTHONPATH=%{buildroot}%{py3_puresitedir} %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
 popd
 
 pushd python2
 # (tpg) build py2
 mkdir -p %{buildroot}%{py2_puresitedir}
-PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --prefix=%{buildroot}%{_prefix}
+PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 popd
 
 %files
