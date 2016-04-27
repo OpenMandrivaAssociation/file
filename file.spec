@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.26
-Release:	2
+Release:	3
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -20,6 +20,16 @@ Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
 Patch26:	file-rpm-locale.patch
+# http://mx.gw.com/pipermail/file/2016/001975.html
+Patch27:	file-5.26-stdin-rpm.patch
+# http://mx.gw.com/pipermail/file/2016/001947.html
+# http://mx.gw.com/pipermail/file/2016/001949.html
+Patch28:	file-5.26-php-magic.patch
+Patch29:	file-5.26-msoffice-magic.patch
+# http://mx.gw.com/pipermail/file/2016/001978.html
+Patch30:	file-5.26-compress-1.patch
+Patch31:	file-5.26-compress-2.patch
+
 
 # fedora patches
 # (tpg) this patch is prolly merged
