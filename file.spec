@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.26
-Release:	3
+Release:	4
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -29,7 +29,8 @@ Patch29:	file-5.26-msoffice-magic.patch
 # http://mx.gw.com/pipermail/file/2016/001978.html
 Patch30:	file-5.26-compress-1.patch
 Patch31:	file-5.26-compress-2.patch
-
+# http://mx.gw.com/pipermail/file/2016/001963.html
+Patch32:	file-5.26-stdin-test.patch
 
 # fedora patches
 # (tpg) this patch is prolly merged
