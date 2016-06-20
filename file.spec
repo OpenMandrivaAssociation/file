@@ -5,7 +5,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.27
+Version:	5.28
 Release:	1
 License:	BSD
 Group:		File tools
@@ -51,7 +51,7 @@ different graphics formats.
 You should install the file package, since the file command is such a
 useful utility.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Shared library for handling magic files
 Group:		System/Libraries
 
@@ -59,7 +59,7 @@ Group:		System/Libraries
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files to build applications that handle magic files
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
@@ -68,7 +68,7 @@ Provides:	magic-devel = %{EVRD}
 %description -n	%{devname}
 This package contains the development files for %{name}.
 
-%package -n	%{static}
+%package -n %{static}
 Summary:	Static library to build applications that handle magic files
 Group:		Development/C
 Requires:	%{devname} = %{EVRD}
@@ -77,7 +77,7 @@ Provides:	magic-static-devel = %{EVRD}
 %description -n	%{static}
 This package contains the static library for %{name}.
 
-%package -n	python-magic
+%package -n python-magic
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
@@ -89,7 +89,7 @@ command is based on.
 
 This package contains the python binding for libmagic.
 
-%package -n	python2-magic
+%package -n python2-magic
 Summary:	Python 2.x module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch

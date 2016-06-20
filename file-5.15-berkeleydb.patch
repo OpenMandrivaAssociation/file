@@ -1,9 +1,10 @@
---- file-5.15/magic/Makefile.am.berkeley~	2012-01-09 18:16:01.000000000 +0200
-+++ file-5.15/magic/Makefile.am	2012-01-09 18:17:59.126125009 +0200
-@@ -51,13 +51,13 @@
- $(MAGIC_FRAGMENT_DIR)/compress \
+diff -Naur file-5.28/magic/Makefile.am file-5.28.tpg/magic/Makefile.am
+--- file-5.28/magic/Makefile.am	2016-06-20 15:27:11.000000000 +0000
++++ file-5.28.tpg/magic/Makefile.am	2016-06-20 15:28:58.706199388 +0000
+@@ -59,13 +59,13 @@
  $(MAGIC_FRAGMENT_DIR)/console \
  $(MAGIC_FRAGMENT_DIR)/convex \
+ $(MAGIC_FRAGMENT_DIR)/coverage \
 -$(MAGIC_FRAGMENT_DIR)/cracklib \
  $(MAGIC_FRAGMENT_DIR)/ctags \
  $(MAGIC_FRAGMENT_DIR)/ctf \
