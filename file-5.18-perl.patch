@@ -1,6 +1,7 @@
---- file-5.23/magic/Magdir/perl.0108~	2015-06-12 12:29:37.393568546 +0200
-+++ file-5.23/magic/Magdir/perl	2015-06-13 14:32:32.936537211 +0200
-@@ -7,29 +7,40 @@
+diff -Naur file-5.28/magic/Magdir/perl file-5.28.tpg/magic/Magdir/perl
+--- file-5.28/magic/Magdir/perl	2016-06-12 16:50:16.000000000 +0000
++++ file-5.28.tpg/magic/Magdir/perl	2016-06-20 15:33:48.864971768 +0000
+@@ -7,29 +7,41 @@
  # Send additions to <perl5-porters@perl.org>
  0	search/1024	eval\ "exec\ perl		Perl script text
  !:mime	text/x-perl
@@ -28,20 +29,21 @@
 +!:strength + 20
  0	search/1024	eval\ '(exit\ $?0)'\ &&\ eval\ 'exec	Perl script text
  !:mime	text/x-perl
- 0	search/1024	#!/usr/bin/env\ perl	Perl script text executable
++!:strength + 20
+ 0	string	#!/usr/bin/env\ perl	Perl script text executable
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1024	#!\ /usr/bin/env\ perl	Perl script text executable
+ 0	string	#!\ /usr/bin/env\ perl	Perl script text executable
  !:mime	text/x-perl
 +!:strength + 20
- 0	search/1024	#!
+ 0	string	#!
  >0	regex	\^#!.*/bin/perl([[:space:]].*)*$	Perl script text executable
  !:mime	text/x-perl
 +!:strength + 20
  
  # by Dmitry V. Levin and Alexey Tourbin
  # check the first line
-@@ -40,7 +51,7 @@
+@@ -40,7 +52,7 @@
  0	search/1024	!p
  >0	regex		\^package[\ \t]+[0-9A-Za-z_:]+\ *;
  >>0	regex		\^1\ *;|\^(use|sub|my)\ .*[(;{=]	Perl5 module source text
