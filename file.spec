@@ -5,7 +5,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.29
+Version:	5.30
 Release:	1
 License:	BSD
 Group:		File tools
@@ -133,7 +133,6 @@ mkdir %{buildroot}/%{_lib}
 mv %{buildroot}%{_libdir}/libmagic.so.%{major}* %{buildroot}/%{_lib}
 ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/libmagic.so
 
-
 # install one missing header file
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
@@ -149,7 +148,7 @@ PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --sk
 popd
 
 %files
-%doc README MAINT ChangeLog
+%doc README MAINT
 %{_bindir}/*
 %{_datadir}/misc/*
 %{_mandir}/man1/*
