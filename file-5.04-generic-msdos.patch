@@ -1,62 +1,51 @@
+From 11f1d4c897c8d015f689527f85ad94804ad15307 Mon Sep 17 00:00:00 2001
+From: Jan Kaluza <jkaluza@redhat.com>
+Date: Tue, 4 Dec 2012 12:07:36 +0100
+Subject: [PATCH] file-5.04-generic-msdos.patch
+
+Signed-off-by: Kamil Dudka <kdudka@redhat.com>
+---
+ magic/Magdir/msdos | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
 diff --git a/magic/Magdir/msdos b/magic/Magdir/msdos
 index d1a19a6..9e89f11 100644
 --- a/magic/Magdir/msdos
 +++ b/magic/Magdir/msdos
-@@ -319,9 +319,9 @@
- # but it isn't feasible to match all COM files since there must be at least
- # two dozen different one-byte "magics".
- # test too generic ?
--0	byte		0xe9		DOS executable (COM)
-->0x1FE leshort		0xAA55		\b, boot code
-->6	string		SFX\ of\ LHarc	(%s)
-+#0	byte		0xe9		DOS executable (COM)
-+#>0x1FE leshort		0xAA55		\b, boot code
-+#>6	string		SFX\ of\ LHarc	(%s)
- 
- # DOS device driver updated by Joerg Jenderek at May 2011
- # http://maben.homeip.net/static/S100/IBM/software/DOS/DOS%20techref/CHAPTER.009
-@@ -396,28 +396,28 @@
- #>4	uleshort&0x4000			0x4000			\b,control strings-support)
- 
- # test too generic ?
--0	byte		0x8c		DOS executable (COM)
-+#0	byte		0x8c		DOS executable (COM)
+@@ -404,7 +404,7 @@
+ # GRR: line below too general as it catches also 
+ # rt.lib DYADISKS.PIC and many more
+ # start with assembler instruction MOV
+-0	ubyte		0x8c		
++#0	ubyte		0x8c		
+ # skip "AppleWorks word processor data" like ARTICLE.1 ./apple
+ >4	string			!O====	
+ # skip some unknown basic binaries like RocketRnger.SHR
+@@ -428,17 +428,17 @@
  # updated by Joerg Jenderek at Oct 2008
  0	ulelong		0xffff10eb	DR-DOS executable (COM)
  # byte 0xeb conflicts with "sequent" magic leshort 0xn2eb
 -0	ubeshort&0xeb8d	>0xeb00		
 +#0	ubeshort&0xeb8d	>0xeb00		
  # DR-DOS STACKER.COM SCREATE.SYS missed
-->0	byte		0xeb
-->>0x1FE leshort		0xAA55		DOS executable (COM), boot code
-->>85	string		UPX		DOS executable (COM), UPX compressed
-->>4	string		\ $ARX		DOS executable (COM), ARX self-extracting archive
-->>4	string		\ $LHarc	DOS executable (COM), LHarc self-extracting archive
-->>0x20e string		SFX\ by\ LARC	DOS executable (COM), LARC self-extracting archive
-+#>0	byte		0xeb
-+#>>0x1FE leshort		0xAA55		DOS executable (COM), boot code
-+#>>85	string		UPX		DOS executable (COM), UPX compressed
-+#>>4	string		\ $ARX		DOS executable (COM), ARX self-extracting archive
-+#>>4	string		\ $LHarc	DOS executable (COM), LHarc self-extracting archive
-+#>>0x20e string		SFX\ by\ LARC	DOS executable (COM), LARC self-extracting archive
- # updated by Joerg Jenderek at Oct 2008
- #0	byte		0xb8		COM executable
--0	uleshort&0x80ff	0x00b8		
-+#0	uleshort&0x80ff	0x00b8		
- # modified by Joerg Jenderek
-->1	lelong		!0x21cd4cff	COM executable for DOS
-+#>1	lelong		!0x21cd4cff	COM executable for DOS
- # http://syslinux.zytor.com/comboot.php
- # (32-bit COMBOOT) programs *.C32 contain 32-bit code and run in flat-memory 32-bit protected mode
- # start with assembler instructions mov eax,21cd4cffh
--0	uleshort&0xc0ff	0xc0b8		
-->1	lelong		0x21cd4cff	COM executable (32-bit COMBOOT)
-+#0	uleshort&0xc0ff	0xc0b8		
-+#>1	lelong		0x21cd4cff	COM executable (32-bit COMBOOT)
- # syslinux:doc/comboot.txt
- # A COM32R program must start with the byte sequence B8 FE 4C CD 21 (mov
- # eax,21cd4cfeh) as a magic number.
-@@ -437,27 +437,27 @@
+ 
+ 0       name    msdos-com
+ >0  byte        x               DOS executable (COM)
+ >6	string		SFX\ of\ LHarc	\b, %s
+->0x1FE leshort	0xAA55		    \b, boot code
+->85	string		UPX		        \b, UPX compressed
+->4	string		\ $ARX		    \b, ARX self-extracting archive
+->4	string		\ $LHarc	    \b, LHarc self-extracting archive
+->0x20e string	SFX\ by\ LARC	\b, LARC self-extracting archive
++#>0x1FE leshort	0xAA55		    \b, boot code
++#>85	string		UPX		        \b, UPX compressed
++#>4	string		\ $ARX		    \b, ARX self-extracting archive
++#>4	string		\ $LHarc	    \b, LHarc self-extracting archive
++#>0x20e string	SFX\ by\ LARC	\b, LARC self-extracting archive
+ 
+ # JMP 8bit
+ 0	        byte	0xeb
+@@ -508,27 +508,27 @@
  # GRR search is not working
  #2	search/28	\xcd\x21	COM executable for MS-DOS
  #WHICHFAT.cOM
@@ -96,3 +85,6 @@ index d1a19a6..9e89f11 100644
  # many compressed/converted COMs start with a copy loop instead of a jump
  0x6	search/0xa	\xfc\x57\xf3\xa5\xc3	COM executable for MS-DOS
  0x6	search/0xa	\xfc\x57\xf3\xa4\xc3	COM executable for DOS
+-- 
+2.5.5
+
