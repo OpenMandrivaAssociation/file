@@ -43,12 +43,3 @@ diff -Naur file-5.28/magic/Magdir/perl file-5.28.tpg/magic/Magdir/perl
  
  # by Dmitry V. Levin and Alexey Tourbin
  # check the first line
-@@ -40,7 +52,7 @@
- 0	search/1024	!p
- >0	regex		\^package[\ \t]+[0-9A-Za-z_:]+\ *;
- >>0	regex		\^1\ *;|\^(use|sub|my)\ .*[(;{=]	Perl5 module source text
--!:strength + 10
-+!:strength + 45
- 
- # Perl POD documents
- # From: Tom Hukins <tom@eborcom.com>

@@ -5,7 +5,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.30
+Version:	5.31
 Release:	1
 License:	BSD
 Group:		File tools
@@ -34,10 +34,6 @@ Patch108:	file-5.18-perl.patch
 # (tpg) this patch is prolly merged
 #Patch111:	file-5.18-no-magic.patch
 Patch112:	file-5.18-journald.patch
-
-# (tpg) from upstream
-Patch118:	file-5.30-fix-debug-info-reversed-logic.patch
-Patch119:	file-5.30-keep-not-stripped-last.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(python3)
@@ -85,7 +81,7 @@ This package contains the static library for %{name}.
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}
 
 %description -n	python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
