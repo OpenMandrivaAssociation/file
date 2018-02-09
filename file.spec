@@ -74,7 +74,7 @@ Group:		Development/C
 Requires:	%{devname} = %{EVRD}
 Provides:	magic-static-devel = %{EVRD}
 
-%description -n	%{static}
+%description -n %{static}
 This package contains the static library for %{name}.
 
 %package -n python-magic
@@ -83,7 +83,7 @@ Group:		Development/Python
 BuildArch:	noarch
 Requires:	%{name}
 
-%description -n	python-magic
+%description -n python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
@@ -95,7 +95,7 @@ Group:		Development/Python
 BuildArch:	noarch
 Requires:	%{name} = %{version}-%{release}
 
-%description -n	python2-magic
+%description -n python2-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
