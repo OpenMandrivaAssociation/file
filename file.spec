@@ -1,12 +1,12 @@
-%define	major 1
-%define	libname %mklibname magic %{major}
-%define	devname %mklibname -d magic
-%define	static %mklibname -d -s magic
+%define major 1
+%define libname %mklibname magic %{major}
+%define devname %mklibname -d magic
+%define static %mklibname -d -s magic
 
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.32
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -36,6 +36,7 @@ Patch108:	file-5.18-perl.patch
 Patch112:	file-5.18-journald.patch
 
 BuildRequires:	pkgconfig(python2)
+BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
 BuildRequires:	pythonegg(setuptools)
