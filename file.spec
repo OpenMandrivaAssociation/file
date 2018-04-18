@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.32
-Release:	2
+Version:	5.33
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -22,17 +22,12 @@ Patch14:	file-4.20-apple.patch
 Patch26:	file-rpm-locale.patch
 
 # fedora patches
-# (tpg) this patch is prolly merged
-#Patch101:	file-5.18-strength.patch
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 Patch105:	file-5.04-man-return-code.patch
-# (tpg) this patch is prolly merged
 Patch106:	file-5.04-generic-msdos.patch
 Patch107:	file-5.18-x86boot.patch
 Patch108:	file-5.18-perl.patch
-# (tpg) this patch is prolly merged
-#Patch111:	file-5.18-no-magic.patch
 Patch112:	file-5.18-journald.patch
 
 BuildRequires:	pkgconfig(python2)
@@ -41,7 +36,7 @@ BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
 BuildRequires:	pythonegg(setuptools)
 BuildRequires:	pkgconfig(zlib)
-Requires:       %{libname} = %{EVRD}
+BuildRequires:	pkgconfig(libseccomp)
 
 %description
 The file command is used to identify a particular file according to the
