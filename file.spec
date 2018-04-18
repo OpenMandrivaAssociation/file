@@ -24,7 +24,6 @@ Patch26:	file-rpm-locale.patch
 # fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-Patch105:	file-5.04-man-return-code.patch
 Patch106:	file-5.04-generic-msdos.patch
 Patch107:	file-5.18-x86boot.patch
 Patch108:	file-5.18-perl.patch
