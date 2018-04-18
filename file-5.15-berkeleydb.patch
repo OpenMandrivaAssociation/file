@@ -1,7 +1,8 @@
-diff -Naur file-5.28/magic/Makefile.am file-5.28.tpg/magic/Makefile.am
---- file-5.28/magic/Makefile.am	2016-06-20 15:27:11.000000000 +0000
-+++ file-5.28.tpg/magic/Makefile.am	2016-06-20 15:28:58.706199388 +0000
-@@ -59,13 +59,13 @@
+Index: file-5.33/magic/Makefile.am
+===================================================================
+--- file-5.33/magic/Makefile.am
++++ file-5.33/magic/Makefile.am	2018-04-16 19:28:36.461882124 +0200
+@@ -65,13 +65,13 @@
  $(MAGIC_FRAGMENT_DIR)/console \
  $(MAGIC_FRAGMENT_DIR)/convex \
  $(MAGIC_FRAGMENT_DIR)/coverage \
@@ -13,6 +14,6 @@ diff -Naur file-5.28/magic/Makefile.am file-5.28.tpg/magic/Makefile.am
  $(MAGIC_FRAGMENT_DIR)/dact \
  $(MAGIC_FRAGMENT_DIR)/database \
 +$(MAGIC_FRAGMENT_DIR)/cracklib \
+ $(MAGIC_FRAGMENT_DIR)/dbpf \
  $(MAGIC_FRAGMENT_DIR)/der \
  $(MAGIC_FRAGMENT_DIR)/diamond \
- $(MAGIC_FRAGMENT_DIR)/diff \

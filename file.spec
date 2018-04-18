@@ -1,11 +1,11 @@
-%define	major 1
-%define	libname %mklibname magic %{major}
-%define	devname %mklibname -d magic
-%define	static %mklibname -d -s magic
+%define major 1
+%define libname %mklibname magic %{major}
+%define devname %mklibname -d magic
+%define static %mklibname -d -s magic
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.32
+Version:	5.33
 Release:	1
 License:	BSD
 Group:		File tools
@@ -22,25 +22,20 @@ Patch14:	file-4.20-apple.patch
 Patch26:	file-rpm-locale.patch
 
 # fedora patches
-# (tpg) this patch is prolly merged
-#Patch101:	file-5.18-strength.patch
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-Patch105:	file-5.04-man-return-code.patch
-# (tpg) this patch is prolly merged
 Patch106:	file-5.04-generic-msdos.patch
 Patch107:	file-5.18-x86boot.patch
 Patch108:	file-5.18-perl.patch
-# (tpg) this patch is prolly merged
-#Patch111:	file-5.18-no-magic.patch
 Patch112:	file-5.18-journald.patch
 
 BuildRequires:	pkgconfig(python2)
+BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
 BuildRequires:	pythonegg(setuptools)
 BuildRequires:	pkgconfig(zlib)
-Requires:       %{libname} = %{EVRD}
+BuildRequires:	pkgconfig(libseccomp)
 
 %description
 The file command is used to identify a particular file according to the
@@ -74,7 +69,7 @@ Group:		Development/C
 Requires:	%{devname} = %{EVRD}
 Provides:	magic-static-devel = %{EVRD}
 
-%description -n	%{static}
+%description -n %{static}
 This package contains the static library for %{name}.
 
 %package -n python-magic
@@ -83,7 +78,7 @@ Group:		Development/Python
 BuildArch:	noarch
 Requires:	%{name}
 
-%description -n	python-magic
+%description -n python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
@@ -95,7 +90,7 @@ Group:		Development/Python
 BuildArch:	noarch
 Requires:	%{name} = %{version}-%{release}
 
-%description -n	python2-magic
+%description -n python2-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
