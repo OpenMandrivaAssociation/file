@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.33
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -35,7 +35,8 @@ BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
 BuildRequires:	pythonegg(setuptools)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:	pkgconfig(libseccomp)
+# (tpg) causes "Bad system call"
+#BuildRequires:	pkgconfig(libseccomp)
 
 %description
 The file command is used to identify a particular file according to the
