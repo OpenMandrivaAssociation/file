@@ -24,10 +24,8 @@ Patch26:	file-rpm-locale.patch
 # fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-Patch106:	file-5.04-generic-msdos.patch
-Patch107:	file-5.18-x86boot.patch
-Patch108:	file-5.18-perl.patch
-Patch112:	file-5.18-journald.patch
+# fix printing of details about ELF binaries
+Patch105:	file-5.34-readelf.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
@@ -98,8 +96,7 @@ command is based on.
 This package contains the python 2.x binding for libmagic.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 autoreconf -fi
 find -name .0*~ -delete
@@ -113,7 +110,7 @@ cp -a python python2
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
-%make
+%make_build
 
 pushd python
 PYTHONPATH=%{py3_puresitedir} %{__python} setup.py build
@@ -124,7 +121,7 @@ PYTHONPATH=%{py2_puresitedir} %{__python2} setup.py build
 popd
 
 %install
-%makeinstall_std
+%make_install
 mkdir %{buildroot}/%{_lib}
 mv %{buildroot}%{_libdir}/libmagic.so.%{major}* %{buildroot}/%{_lib}
 ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/libmagic.so

@@ -1,9 +1,11 @@
---- file-5.15/magic/Makefile.am.berkeley~	2012-01-09 18:16:01.000000000 +0200
-+++ file-5.15/magic/Makefile.am	2012-01-09 18:17:59.126125009 +0200
-@@ -51,13 +51,13 @@
- $(MAGIC_FRAGMENT_DIR)/compress \
+Index: file-5.33/magic/Makefile.am
+===================================================================
+--- file-5.33/magic/Makefile.am
++++ file-5.33/magic/Makefile.am	2018-04-16 19:28:36.461882124 +0200
+@@ -65,13 +65,13 @@
  $(MAGIC_FRAGMENT_DIR)/console \
  $(MAGIC_FRAGMENT_DIR)/convex \
+ $(MAGIC_FRAGMENT_DIR)/coverage \
 -$(MAGIC_FRAGMENT_DIR)/cracklib \
  $(MAGIC_FRAGMENT_DIR)/ctags \
  $(MAGIC_FRAGMENT_DIR)/ctf \
@@ -12,6 +14,6 @@
  $(MAGIC_FRAGMENT_DIR)/dact \
  $(MAGIC_FRAGMENT_DIR)/database \
 +$(MAGIC_FRAGMENT_DIR)/cracklib \
+ $(MAGIC_FRAGMENT_DIR)/dbpf \
+ $(MAGIC_FRAGMENT_DIR)/der \
  $(MAGIC_FRAGMENT_DIR)/diamond \
- $(MAGIC_FRAGMENT_DIR)/diff \
- $(MAGIC_FRAGMENT_DIR)/digital \
