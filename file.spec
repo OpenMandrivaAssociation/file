@@ -159,9 +159,7 @@ popd
 %{_libdir}/libmagic.a
 
 %files -n python-magic
-%doc python/README python/example.py
 %{py_puresitedir}/*
 
 %files -n python2-magic
-%doc python/README python/example.py
 %{py2_puresitedir}/*
