@@ -24,6 +24,8 @@ Patch26:	file-rpm-locale.patch
 # fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
+Patch105:	file-5.34-ebpf-magic.patch
+Patch106:		file-5.35-qcow2-misleading.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
@@ -120,6 +122,7 @@ popd
 
 %install
 %make_install
+
 mkdir %{buildroot}/%{_lib}
 mv %{buildroot}%{_libdir}/libmagic.so.%{major}* %{buildroot}/%{_lib}
 ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/libmagic.so

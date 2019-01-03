@@ -1,0 +1,35 @@
+From 59e7ca314411c4811bb1a15026531edacfd66f0e Mon Sep 17 00:00:00 2001
+From: Ondrej Dubaj <odubaj@redhat.com>
+Date: Tue, 4 Dec 2018 11:50:20 +0100
+Subject: [PATCH] Fixed bug misleading qcow2 v2 and v3 files (#1654349)
+
+---
+ magic/Magdir/virtual | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/magic/Magdir/virtual b/magic/Magdir/virtual
+index 26442bf..24c8b32 100644
+--- a/magic/Magdir/virtual
++++ b/magic/Magdir/virtual
+@@ -36,7 +36,7 @@
+ # Updated by Adam Buchbinder (adam.buchbinder@gmail.com)
+ # Made by reading sources, reading documentation, and doing trial and error
+ # on existing QCOW files
+-0	string/b	QFI\xFB	QEMU QCOW Image
++0	string/b	QFI\xFB
+ 
+ # Uncomment the following line to display Magic (only used for debugging
+ # this magic number)
+@@ -44,7 +44,8 @@
+ 
+ # There are currently 2 Versions: "1" and "2".
+ # http://www.gnome.org/~markmc/qcow-image-format-version-1.html
+->4	belong	1	(v1)
++>4     belong          !1      QEMU QCOW2 Image
++>4     belong          1       QEMU QCOW Image (v1)
+ 
+ # Using the existence of the Backing File Offset to determine whether
+ # to read Backing File Information
+-- 
+2.17.1
+
