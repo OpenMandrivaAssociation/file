@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.34
-Release:	2
+Version:	5.35
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -49,7 +49,7 @@ useful utility.
 Summary:	Shared library for handling magic files
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
