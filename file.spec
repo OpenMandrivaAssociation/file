@@ -24,8 +24,6 @@ Patch26:	file-rpm-locale.patch
 # fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-# fix printing of details about ELF binaries
-Patch105:	file-5.34-readelf.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
