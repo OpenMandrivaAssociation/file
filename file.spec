@@ -5,7 +5,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.35
+Version:	5.36
 Release:	1
 License:	BSD
 Group:		File tools
@@ -21,11 +21,13 @@ Patch13:	file-5.05-images.patch
 Patch14:	file-4.20-apple.patch
 Patch26:	file-rpm-locale.patch
 
-# fedora patches
+# Fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-Patch105:	file-5.34-ebpf-magic.patch
-Patch106:		file-5.35-qcow2-misleading.patch
+
+# ClearLinux patches
+Patch110:	0003-ucs32-bounds-check.patch
+Patch111:	0004-allow-madvise.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
@@ -33,8 +35,7 @@ BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
 BuildRequires:	pythonegg(setuptools)
 BuildRequires:	pkgconfig(zlib)
-# (tpg) causes "Bad system call"
-#BuildRequires:	pkgconfig(libseccomp)
+BuildRequires:	pkgconfig(libseccomp)
 
 %description
 The file command is used to identify a particular file according to the
