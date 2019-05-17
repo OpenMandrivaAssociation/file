@@ -5,7 +5,7 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.36
+Version:	5.37
 Release:	1
 License:	BSD
 Group:		File tools
@@ -18,7 +18,6 @@ Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
-Patch14:	file-4.20-apple.patch
 Patch26:	file-rpm-locale.patch
 
 # Fedora patches
@@ -26,7 +25,6 @@ Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
 # ClearLinux patches
-Patch110:	0003-ucs32-bounds-check.patch
 Patch111:	0004-allow-madvise.patch
 
 BuildRequires:	pkgconfig(python2)
