@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.37
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -102,7 +102,8 @@ find -name .0*~ -delete
 cp -a python python2
 
 %build
-%global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
+# Fix linking libmagic (vfork needs libpthread)
+%global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -pthread
 
 %configure --enable-static
 # remove hardcoded library paths from local libtool
