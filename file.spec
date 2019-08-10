@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.37
-Release:	2
+Release:	3
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -26,7 +26,7 @@ Patch104:	file-5.04-volume_key.patch
 
 # ClearLinux patches
 Patch111:	0004-allow-madvise.patch
-
+Patch113:	0003-Whitelist-syscall-futex-for-seccomp.patch
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
@@ -58,7 +58,7 @@ Group:		Development/C
 Requires:	%{libname} = %{EVRD}
 Provides:	magic-devel = %{EVRD}
 
-%description -n	%{devname}
+%description -n %{devname}
 This package contains the development files for %{name}.
 
 %package -n %{static}
