@@ -25,7 +25,8 @@ Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
 # ClearLinux patches
-Patch113:	0003-Whitelist-more-syscalls-for-seccomp.patch
+#Patch113:	0003-Whitelist-more-syscalls-for-seccomp.patch
+
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
