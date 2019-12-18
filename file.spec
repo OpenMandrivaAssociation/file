@@ -18,7 +18,7 @@ Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
-Patch26:	file-rpm-locale.patch
+#Patch26:	file-rpm-locale.patch
 
 # Fedora patches
 Patch103:	file-4.17-rpm-name.patch
