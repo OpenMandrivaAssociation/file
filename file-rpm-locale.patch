@@ -1,17 +1,18 @@
---- file-5.14/magic/Magdir/archive~	2013-02-17 21:34:37.000000000 +0000
-+++ file-5.14/magic/Magdir/archive	2013-06-18 19:43:23.055959867 +0000
-@@ -692,12 +692,12 @@
- >>>50		string	!vnd.oasis.opendocument.
- >>>>50		string	!vnd.sun.xml.
- >>>>>50		string	!vnd.kde.
-->>>>>>38	regex	[!-OQ-~]+		Zip data (MIME type "%s"?)
-+>>>>>>38	regex	[0-9A-OQ-Za-z]+		Zip data (MIME type "%s"?)
- !:mime	application/zip
+diff -p -up file-5.38/magic/Magdir/archive file-5.38/magic/Magdir/archive~
+--- file-5.38/magic/Magdir/archive      2019-11-15 22:03:14.000000000 +0100
++++ file-5.38/magic/Magdir/archive~     2019-12-18 14:24:34.084718192 +0100
+@@ -1220,12 +1220,12 @@
+ #      any capital 'P's. This is a kludge.
+ #    (mimetype contains "application/<OTHER>")
+ >>50           default x                       Zip data
+->>>38          regex   [!-OQ-~]+               (MIME type "%s"?)
++>>>38          regex   [0-9A-OQ-Za-z]+         (MIME type "%s"?)
+ !:mime application/zip
  #    (mimetype contents other than "application/*")
- >26		string	\x8\0\0\0mimetype
- >>38		string	!application/
-->>>38		regex	[!-OQ-~]+		Zip data (MIME type "%s"?)
-+>>>38		regex	[0-9A-OQ-Za-z]+		Zip data (MIME type "%s"?)
- !:mime	application/zip
+ >26            string  \x8\0\0\0mimetype
+ >>38           string  !application/
+->>>38          regex   [!-OQ-~]+               Zip data (MIME type "%s"?)
++>>>38          regex   [0-9A-OQ-Za-z]+         Zip data (MIME type "%s"?)
+ !:mime application/zip
  
  # Java Jar files

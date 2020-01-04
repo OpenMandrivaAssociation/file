@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.37
-Release:	5
+Version:	5.38
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -18,14 +18,15 @@ Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
-Patch26:	file-rpm-locale.patch
+#Patch26:	file-rpm-locale.patch
 
 # Fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
 # ClearLinux patches
-Patch113:	0003-Whitelist-more-syscalls-for-seccomp.patch
+#Patch113:	0003-Whitelist-more-syscalls-for-seccomp.patch
+
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
