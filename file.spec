@@ -31,6 +31,8 @@ BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
 BuildRequires:	pythonegg(setuptools)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(bzip2)
+BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libseccomp)
 
 %description
