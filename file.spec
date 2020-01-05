@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.38
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -18,14 +18,12 @@ Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
+Patch14:	file-5.38-seccomp-whitelist-getpid.patch
 #Patch26:	file-rpm-locale.patch
 
 # Fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-
-# ClearLinux patches
-#Patch113:	0003-Whitelist-more-syscalls-for-seccomp.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
@@ -105,7 +103,11 @@ cp -a python python2
 # Fix linking libmagic (vfork needs libpthread)
 %global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -pthread
 
-%configure --enable-static
+%configure --enable-static \
+	--enable-xzlib \
+	--enable-bzlib \
+	--enable-zlib \
+	--enable-libseccomp
 # remove hardcoded library paths from local libtool
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
