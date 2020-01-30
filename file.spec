@@ -74,7 +74,7 @@ This package contains the static library for %{name}.
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
-Provides:	python3-{name} = %{version}-%{release}
+Provides:	python3-%{name} = %{version}-%{release}
 Requires:	%{name}
 
 %description -n python-magic
