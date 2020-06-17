@@ -18,7 +18,6 @@ Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 Patch13:	file-5.05-images.patch
-Patch14:	file-5.38-seccomp-whitelist-getpid.patch
 #Patch26:	file-rpm-locale.patch
 
 # Fedora patches
@@ -158,6 +157,7 @@ popd
 
 %files -n %{devname}
 %{_libdir}/libmagic.so
+%{_libdir}/pkgconfig/libmagic.pc
 %{_includedir}/*
 %{_mandir}/man3/*
 
