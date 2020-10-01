@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
+BuildRequires:	python2dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
