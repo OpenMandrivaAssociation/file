@@ -32,7 +32,8 @@ BuildRequires:	python2dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
-BuildRequires:	pkgconfig(libseccomp)
+# (tpg) see --disable-libseccomp
+#BuildRequires:	pkgconfig(libseccomp)
 
 %description
 The file command is used to identify a particular file according to the
@@ -105,24 +106,29 @@ cp -a python python2
 # Fix linking libmagic (vfork needs libpthread)
 %global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -pthread
 
+# We may want to --enable-libseccomp at some point.
+# Right now it breaks the "file -z" option (because
+# unxz and friends don't go by the same sandbox rules
+# as file itself)
 %configure --enable-static \
 	--enable-xzlib \
 	--enable-bzlib \
 	--enable-zlib \
-	--enable-libseccomp
+	--disable-libseccomp
+
 # remove hardcoded library paths from local libtool
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
 %make_build
 
-pushd python
+cd python
 PYTHONPATH=%{py3_puresitedir} %{__python} setup.py build
-popd
+cd ..
 
-pushd python2
+cd python2
 PYTHONPATH=%{py2_puresitedir} %{__python2} setup.py build
-popd
+cd ..
 
 %install
 %make_install
