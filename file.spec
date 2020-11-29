@@ -76,8 +76,8 @@ Group:		Development/Python
 BuildArch:	noarch
 Provides:	python-%{name} = %{version}-%{release}
 Requires:	%{name}
-Obsoletes:      python-magic < 5.39-2
-Conflicts:      python-magic
+Obsoletes:      python-magic < 5.39-3
+Conflicts:      python-magic >= 0.4.18
 
 %description -n python-%{name}
 Libmagic is a library for handlig the so called magic files the 'file'
