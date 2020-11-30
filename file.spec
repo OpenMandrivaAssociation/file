@@ -170,8 +170,8 @@ popd
 %files -n %{static}
 %{_libdir}/libmagic.a
 
-%files -n python-%{name}
+%files -n python-file-magic
 %{py_puresitedir}/*
 
-%files -n python2-%{name}
+%files -n python2-file-magic
 %{py2_puresitedir}/*
