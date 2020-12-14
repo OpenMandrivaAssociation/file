@@ -70,26 +70,26 @@ Provides:	magic-static-devel = %{EVRD}
 %description -n %{static}
 This package contains the static library for %{name}.
 
-%package -n python-file-magic
+%package -n python-magic
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
-Provides:	python-file-magic = %{version}-%{release}
+Provides:	python3-magic = %{version}-%{release}
 Requires:	%{name}
 
-%description -n python-file-magic
+%description -n python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
 This package contains the python binding for libmagic.
 
-%package -n python2-file-magic
+%package -n python2-magic
 Summary:	Python 2.x module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
 Requires:	%{name} = %{version}-%{release}
 
-%description -n python2-file-magic
+%description -n python2-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
@@ -170,8 +170,8 @@ popd
 %files -n %{static}
 %{_libdir}/libmagic.a
 
-%files -n python-file-magic
+%files -n python-magic
 %{py_puresitedir}/*
 
-%files -n python2-file-magic
+%files -n python2-magic
 %{py2_puresitedir}/*
