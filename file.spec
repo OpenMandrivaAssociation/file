@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.39
-Release:	4
+Release:	5
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -76,6 +76,7 @@ Group:		Development/Python
 BuildArch:	noarch
 Provides:	python3-magic = %{version}-%{release}
 Requires:	%{name}
+Obsoletes:	python-file-magic < 5.39-5
 
 %description -n python-magic
 Libmagic is a library for handlig the so called magic files the 'file'
@@ -88,6 +89,7 @@ Summary:	Python 2.x module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	python2-file-magic < 5.39-5
 
 %description -n python2-magic
 Libmagic is a library for handlig the so called magic files the 'file'
