@@ -32,8 +32,7 @@ BuildRequires:	python2dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
-# (tpg) see --disable-libseccomp
-#BuildRequires:	pkgconfig(libseccomp)
+BuildRequires:	pkgconfig(libseccomp)
 
 %description
 The file command is used to identify a particular file according to the
@@ -106,17 +105,14 @@ cp -a python python2
 
 %build
 # Fix linking libmagic (vfork needs libpthread)
-%global optflags %{optflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -pthread
+%global optflags %{optflags} -Oz -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -pthread
 
-# We may want to --enable-libseccomp at some point.
-# Right now it breaks the "file -z" option (because
-# unxz and friends don't go by the same sandbox rules
-# as file itself)
-%configure --enable-static \
+%configure \
+	--enable-static \
 	--enable-xzlib \
 	--enable-bzlib \
 	--enable-zlib \
-	--disable-libseccomp
+	--enable-libseccomp
 
 # remove hardcoded library paths from local libtool
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
@@ -142,10 +138,10 @@ ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/lib
 # install one missing header file
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
-pushd python
+cd python
 mkdir -p %{buildroot}%{py3_puresitedir}
 PYTHONPATH=%{buildroot}%{py3_puresitedir} %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
-popd
+cd ..
 
 pushd python2
 # (tpg) build py2

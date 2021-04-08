@@ -1,14 +1,15 @@
-diff -Naur file-5.34/magic/Makefile.am file-5.34.tpg/magic/Makefile.am
---- file-5.34/magic/Makefile.am	2018-09-14 15:22:21.729336000 +0000
-+++ file-5.34.tpg/magic/Makefile.am	2018-09-14 15:23:51.399331078 +0000
-@@ -65,13 +65,13 @@
+diff -Naur file-5.40/magic/Makefile.am file-5.40.tpg/magic/Makefile.am
+--- file-5.40/magic/Makefile.am	2021-04-08 17:52:14.023012598 +0000
++++ file-5.40.tpg/magic/Makefile.am	2021-04-08 17:53:12.204709488 +0000
+@@ -71,7 +71,6 @@
  $(MAGIC_FRAGMENT_DIR)/console \
  $(MAGIC_FRAGMENT_DIR)/convex \
  $(MAGIC_FRAGMENT_DIR)/coverage \
 -$(MAGIC_FRAGMENT_DIR)/cracklib \
+ $(MAGIC_FRAGMENT_DIR)/crypto \
  $(MAGIC_FRAGMENT_DIR)/ctags \
  $(MAGIC_FRAGMENT_DIR)/ctf \
- $(MAGIC_FRAGMENT_DIR)/cubemap \
+@@ -79,6 +78,7 @@
  $(MAGIC_FRAGMENT_DIR)/cups \
  $(MAGIC_FRAGMENT_DIR)/dact \
  $(MAGIC_FRAGMENT_DIR)/database \
