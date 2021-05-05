@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.40
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -23,6 +23,8 @@ Patch13:	file-5.05-images.patch
 # Fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
+
+Patch110:	https://raw.githubusercontent.com/clearlinux-pkgs/file/master/0003-PR-257-cuihao-put-attributes-inside-the-xz-magic.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
