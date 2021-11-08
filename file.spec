@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.40
-Release:	2
+Version:	5.41
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -17,14 +17,11 @@ Patch4:		file-5.04-oracle.patch
 Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
-Patch13:	file-5.05-images.patch
 #Patch26:	file-rpm-locale.patch
 
 # Fedora patches
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
-
-Patch110:	https://raw.githubusercontent.com/clearlinux-pkgs/file/master/0003-PR-257-cuihao-put-attributes-inside-the-xz-magic.patch
 
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-pkg-resources
@@ -35,6 +32,7 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libseccomp)
+Requires:	%{libname} = %{version}
 
 %description
 The file command is used to identify a particular file according to the
@@ -133,39 +131,37 @@ cd ..
 %install
 %make_install
 
-mkdir %{buildroot}/%{_lib}
-mv %{buildroot}%{_libdir}/libmagic.so.%{major}* %{buildroot}/%{_lib}
-ln -srf %{buildroot}/%{_lib}/libmagic.so.%{major}.*.* %{buildroot}%{_libdir}/libmagic.so
-
 # install one missing header file
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
+
+cat magic/Magdir/* > %{buildroot}%{_datadir}/misc/magic
 
 cd python
 mkdir -p %{buildroot}%{py3_puresitedir}
 PYTHONPATH=%{buildroot}%{py3_puresitedir} %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
 cd ..
 
-pushd python2
+cd python2
 # (tpg) build py2
 mkdir -p %{buildroot}%{py2_puresitedir}
 PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
-popd
+cd ..
 
 %files
-%doc README MAINT
+%doc MAINT
 %{_bindir}/*
 %{_datadir}/misc/*
-%{_mandir}/man1/*
-%{_mandir}/man4/*
+%doc %{_mandir}/man1/*
+%doc %{_mandir}/man4/*
 
 %files -n %{libname}
-/%{_lib}/libmagic.so.%{major}*
+%{_libdir}/libmagic.so.%{major}*
 
 %files -n %{devname}
 %{_libdir}/libmagic.so
 %{_libdir}/pkgconfig/libmagic.pc
 %{_includedir}/*
-%{_mandir}/man3/*
+%doc %{_mandir}/man3/*
 
 %files -n %{static}
 %{_libdir}/libmagic.a
