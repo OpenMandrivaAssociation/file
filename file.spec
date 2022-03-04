@@ -150,6 +150,10 @@ cd ..
 # *** TEMPORARY *** hack
 # Check symlinks, need to figure out why all of a sudden relink_symlinks freaks out
 ls -l %{buildroot}%{_libdir}/libmagic*
+which readlink
+readlink --version
+readlink %{buildroot}%{_libdir}/libmagic.so
+readlink -f %{buildroot}%{_libdir}/libmagic.so
 . /usr/share/spec-helper/relink_symlinks
 
 
