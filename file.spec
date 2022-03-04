@@ -154,7 +154,7 @@ cd ..
 # We cannot use "readlink -f" command because it doesn't know about $RPM_BUILD_ROOT
 # and follows symlinks on real filesystem instead of $RPM_BUILD_ROOT
 readlink_f() {
-    __symlink="$(readlink \"$1\")"
+    __symlink="$(readlink $1)"
     if [ -z "$__symlink" ]; then
 	printf '%s\n' $1 | sed s,"$RPM_BUILD_ROOT",,
     else
@@ -177,9 +177,9 @@ find "$RPM_BUILD_ROOT" \
 while read symlink; do
     echo "Symlink: $symlink"
     echo "readlink: $(readlink $symlink)"
-    echo "readlink with quote: $(readlink \"$symlink\")"
+    echo "readlink with quote: $(readlink '$symlink')"
 
-    path="$(readlink_f "$symlink")"
+    path="$(readlink_f '$symlink')"
 
     printf '%s\n' $path | grep -q -E '^(/dev|/sys|/proc)' && continue
     # skip non-absolute path
