@@ -149,12 +149,59 @@ cd ..
 
 # *** TEMPORARY *** hack
 # Check symlinks, need to figure out why all of a sudden relink_symlinks freaks out
-ls -l %{buildroot}%{_libdir}/libmagic*
-which readlink
-readlink --version
-readlink %{buildroot}%{_libdir}/libmagic.so
-readlink -f %{buildroot}%{_libdir}/libmagic.so
-. /usr/share/spec-helper/relink_symlinks
+#!/bin/sh
+
+# We cannot use "readlink -f" command because it doesn't know about $RPM_BUILD_ROOT
+# and follows symlinks on real filesystem instead of $RPM_BUILD_ROOT
+readlink_f() {
+    __symlink="$(readlink \"$1\")"
+    if [ -z "$__symlink" ]; then
+	printf '%s\n' $1 | sed s,"$RPM_BUILD_ROOT",,
+    else
+	readlink_f "$RPM_BUILD_ROOT$__symlink"
+    fi
+}
+
+if [ -z "$RPM_BUILD_ROOT" ]; then
+    printf '%s\n' "No build root defined" >&2
+    exit 1
+fi
+
+if [ ! -d "$RPM_BUILD_ROOT" ]; then
+    printf '%s\n' "Invalid build root" >&2
+    exit 1
+fi
+
+find "$RPM_BUILD_ROOT" \
+    -type l -print0 | xargs --no-run-if-empty -0 ls 2>/dev/null |
+while read symlink; do
+    echo "Symlink: $symlink"
+    echo "readlink: $(readlink $symlink)"
+    echo "readlink with quote: $(readlink \"$symlink\")"
+
+    path="$(readlink_f "$symlink")"
+
+    printf '%s\n' $path | grep -q -E '^(/dev|/sys|/proc)' && continue
+    # skip non-absolute path
+    if printf '%s\n' $path | grep -q -E '^/'; then
+	# absolute path needs to be made into an absolute path relative to buildroot
+	path="$RPM_BUILD_ROOT$path"
+	if stat "$path" &> /dev/null; then
+	    rm "$symlink"
+	    # ln will try follow symlink if source exists as symlink, so let's move
+	    # it out of the way first, then back afterwards
+	    stat "$path" &> /dev/null && mv "$path" "$path.origlink"
+	    output="$(ln -svr \"$path\" \"$symlink\" 2>&1)"
+	    stat "$path.origlink" &> /dev/null && mv "$path.origlink" "$path"
+	    if ! stat "$symlink" &> /dev/null; then
+		printf '%s\n' "symlink relativization failed:" >&2
+		printf '%s\n' "$output" >&2
+		ls --color -l "$symlink" >&2
+	    fi
+	fi
+    fi
+done
+exit 1
 
 
 %files
