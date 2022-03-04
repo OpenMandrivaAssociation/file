@@ -177,9 +177,9 @@ find "$RPM_BUILD_ROOT" \
 while read symlink; do
     echo "Symlink: $symlink"
     echo "readlink: $(readlink $symlink)"
-    echo "readlink with quote: $(readlink '$symlink')"
+    echo "readlink with quote: $(readlink \\"$symlink\\")"
 
-    path="$(readlink_f '$symlink')"
+    path="$(readlink_f \"$symlink\")"
 
     printf '%s\n' $path | grep -q -E '^(/dev|/sys|/proc)' && continue
     # skip non-absolute path
