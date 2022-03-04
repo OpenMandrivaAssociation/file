@@ -147,8 +147,11 @@ mkdir -p %{buildroot}%{py2_puresitedir}
 PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 cd ..
 
+# *** TEMPORARY *** hack
 # Check symlinks, need to figure out why all of a sudden relink_symlinks freaks out
 ls -l %{buildroot}%{_libdir}/libmagic*
+. /usr/share/spec-helper/relink_symlinks
+
 
 %files
 %doc MAINT
