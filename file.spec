@@ -179,7 +179,7 @@ while read symlink; do
     echo "readlink: $(readlink $symlink)"
     echo "readlink with quote: $(readlink \\"$symlink\\")"
 
-    path="$(readlink_f \"$symlink\")"
+    path="$(readlink_f $symlink)"
 
     printf '%s\n' $path | grep -q -E '^(/dev|/sys|/proc)' && continue
     # skip non-absolute path
