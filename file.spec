@@ -5,8 +5,8 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.41
-Release:	3
+Version:	5.42
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -14,7 +14,6 @@ Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 Patch3:		file-4.24-selinux.patch
 Patch4:		file-5.04-oracle.patch
-Patch7:		file-5.05-dump.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 #Patch26:	file-rpm-locale.patch
