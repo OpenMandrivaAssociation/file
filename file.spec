@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.42
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		http://www.darwinsys.com/file/
@@ -17,6 +17,7 @@ Patch4:		file-5.04-oracle.patch
 Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 #Patch26:	file-rpm-locale.patch
+Patch10:	file-5.42-fix-size-of-lines-read-from-stdin.patch
 
 # Fedora patches
 Patch103:	file-4.17-rpm-name.patch
@@ -145,6 +146,12 @@ cd python2
 mkdir -p %{buildroot}%{py2_puresitedir}
 PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 cd ..
+
+%check
+if [ $(echo %{_bindir}/file |%{buildroot}%{_bindir}/file -N -f - |cut -d: -f1) != %{_bindir}/file ]; then
+	echo "Basic sanity check failed. This is likely to break other package builds."
+	exit 1
+fi
 
 %files
 %doc MAINT
