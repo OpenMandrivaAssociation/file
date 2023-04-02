@@ -21,11 +21,8 @@ Patch9:		file-5.14-xen.patch
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	python2-pkg-resources
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3egg(setuptools)
-BuildRequires:	python2dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
@@ -81,25 +78,11 @@ command is based on.
 
 This package contains the python binding for libmagic.
 
-%package -n python2-magic
-Summary:	Python 2.x module to use libmagic
-Group:		Development/Python
-BuildArch:	noarch
-Requires:	%{name} = %{version}-%{release}
-Obsoletes:	python2-file-magic < 5.39-5
-
-%description -n python2-magic
-Libmagic is a library for handlig the so called magic files the 'file'
-command is based on.
-
-This package contains the python 2.x binding for libmagic.
-
 %prep
 %autosetup -p1
 
 autoreconf -fi
 find -name .0*~ -delete
-cp -a python python2
 
 %build
 # Fix linking libmagic (vfork needs libpthread)
@@ -122,10 +105,6 @@ cd python
 PYTHONPATH=%{py3_puresitedir} %{__python} setup.py build
 cd ..
 
-cd python2
-PYTHONPATH=%{py2_puresitedir} %{__python2} setup.py build
-cd ..
-
 %install
 %make_install
 
@@ -137,12 +116,6 @@ cat magic/Magdir/* > %{buildroot}%{_datadir}/misc/magic
 cd python
 mkdir -p %{buildroot}%{py3_puresitedir}
 PYTHONPATH=%{buildroot}%{py3_puresitedir} %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
-cd ..
-
-cd python2
-# (tpg) build py2
-mkdir -p %{buildroot}%{py2_puresitedir}
-PYTHONPATH=%{buildroot}%{py2_puresitedir} %{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 cd ..
 
 # (tpg) strip LTO from "LLVM IR bitcode" files
@@ -202,6 +175,3 @@ fi
 
 %files -n python-magic
 %{py_puresitedir}/*
-
-%files -n python2-magic
-%{py2_puresitedir}/*
