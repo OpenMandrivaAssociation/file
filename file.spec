@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.45
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		https://www.darwinsys.com/file/
@@ -64,15 +64,13 @@ Provides:	magic-static-devel = %{EVRD}
 %description -n %{static}
 This package contains the static library for %{name}.
 
-%package -n python-magic
+%package -n python-file-magic
 Summary:	Python module to use libmagic
 Group:		Development/Python
 BuildArch:	noarch
-Provides:	python3-magic = %{version}-%{release}
-Requires:	%{name}
-Obsoletes:	python-file-magic < 5.39-5
+Requires:	%{name} = %{EVRD}
 
-%description -n python-magic
+%description -n python-file-magic
 Libmagic is a library for handlig the so called magic files the 'file'
 command is based on.
 
@@ -143,5 +141,5 @@ fi
 %files -n %{static}
 %{_libdir}/libmagic.a
 
-%files -n python-magic
+%files -n python-file-magic
 %{py_puresitedir}/*
