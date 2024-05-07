@@ -29,6 +29,13 @@ BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libseccomp)
 Requires:	%{libname} = %{version}
 
+BuildSystem:	autotools
+BuildOption:	--enable-static
+BuildOption:	--enable-xzlib
+BuildOption:	--enable-bzlib
+BuildOption:	--enable-zlib
+BuildOption:	--enable-libseccomp
+
 %description
 The file command is used to identify a particular file according to the
 type of data contained by the file.  File can identify many different
@@ -76,36 +83,12 @@ command is based on.
 
 This package contains the python binding for libmagic.
 
-%prep
-%autosetup -p1
-
-autoreconf -fi
-find -name .0*~ -delete
-
-%build
-# Fix linking libmagic (vfork needs libpthread)
-%global optflags %{optflags} -Oz -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -pthread
-
-%configure \
-	--enable-static \
-	--enable-xzlib \
-	--enable-bzlib \
-	--enable-zlib \
-	--enable-libseccomp
-
-# remove hardcoded library paths from local libtool
-sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
-sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
-
-%make_build
-
+%build -a
 cd python
 PYTHONPATH=%{py3_puresitedir} %{__python} setup.py build
 cd ..
 
-%install
-%make_install
-
+%install -a
 # install one missing header file
 install -m644 src/file.h -D %{buildroot}%{_includedir}/file.h
 
