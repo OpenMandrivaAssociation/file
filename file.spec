@@ -27,6 +27,9 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libseccomp)
+BuildRequires:	slibtool
+BuildRequires:	autoconf
+BuildRequires:	automake
 Requires:	%{libname} = %{version}
 
 BuildSystem:	autotools
