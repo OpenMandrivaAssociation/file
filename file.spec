@@ -83,6 +83,13 @@ command is based on.
 
 This package contains the python binding for libmagic.
 
+%prep -a
+slibtoolize --force
+aclocal
+autoheader
+automake -a
+autoconf
+
 %build -a
 cd python
 PYTHONPATH=%{py3_puresitedir} %{__python} setup.py build
