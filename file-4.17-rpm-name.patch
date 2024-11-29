@@ -1,10 +1,9 @@
-diff --git a/magic/Magdir/rpm b/magic/Magdir/rpm
-index 9a795f8..31db083 100644
---- a/magic/Magdir/rpm
-+++ b/magic/Magdir/rpm
-@@ -29,6 +29,7 @@
- >>8	beshort		17		SuperH
- >>8	beshort		18		Xtensa
+diff -up file-5.46/magic/Magdir/rpm.4~ file-5.46/magic/Magdir/rpm
+--- file-5.46/magic/Magdir/rpm.4~	2024-11-29 17:00:43.009313041 +0100
++++ file-5.46/magic/Magdir/rpm	2024-11-29 22:24:40.171087227 +0100
+@@ -34,6 +34,7 @@
+ >>8	beshort		22		RISC-V64
+ >>8	beshort		23		LoongArch64
  >>8	beshort		255		noarch
 +>>10	string		x		%s
  
