@@ -6,7 +6,7 @@
 Summary:	A utility for determining file types
 Name:		file
 Version:	5.46
-Release:	1
+Release:	2
 License:	BSD
 Group:		File tools
 Url:		https://www.darwinsys.com/file/
@@ -22,7 +22,7 @@ Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
 BuildRequires:	pkgconfig(python3)
-BuildRequires:	python3egg(setuptools)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(bzip2)
 BuildRequires:	pkgconfig(liblzma)
