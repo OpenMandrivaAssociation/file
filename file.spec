@@ -21,6 +21,7 @@ Patch9:		file-5.14-xen.patch
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
+BuildRequires:	libtool-base
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
