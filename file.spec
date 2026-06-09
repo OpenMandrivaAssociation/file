@@ -5,15 +5,14 @@
 
 Summary:	A utility for determining file types
 Name:		file
-Version:	5.46
-Release:	2
+Version:	5.48
+Release:	1
 License:	BSD
 Group:		File tools
 Url:		https://www.darwinsys.com/file/
 Source0:	ftp://ftp.astron.com/pub/file/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 Patch4:		file-5.04-oracle.patch
-Patch8:		file-5.15-berkeleydb.patch
 Patch9:		file-5.14-xen.patch
 #Patch26:	file-rpm-locale.patch
 
@@ -21,7 +20,6 @@ Patch9:		file-5.14-xen.patch
 Patch103:	file-4.17-rpm-name.patch
 Patch104:	file-5.04-volume_key.patch
 
-BuildRequires:	libtool-base
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	pkgconfig(zlib)
